@@ -1,0 +1,106 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+  }
+  html {
+    font-family: "Montserrat", sans-serif;
+  }
+  
+  
+  #root{
+    background-image: url("https://www.transparenttextures.com/patterns/cubes.png");
+    
+  }
+  
+  .H {
+    color: white ;
+    font-family: 'Kanit', sans-serif;
+    font-weight: 500;
+    font-size: 25px;
+  }
+  
+  .bg-red{
+    background-color: #92140C;
+  }
+  
+  h1 {
+    color: #fff;
+    font-family: 'Kanit', sans-serif;
+    font-weight: 400;
+  }
+  
+  .font{
+    font-family: 'Kanit', sans-serif;
+  }
+  
+  .left-margin{
+    margin-left: 5%;
+  }
+  
+  .bottom-margin{
+    margin-bottom: 5%;
+  } 
+  
+  .nav-link{
+    font-family: 'Kanit', sans-serif;
+  
+    width: 125px;
+    text-align: center;
+  
+  }
+  .nav-link:hover {
+    background-color: #0B5351;
+    border-radius: 10px;
+    text-decoration: none;
+    color: black;
+    
+  }
+  
+  #image{
+    display: inline-table;  
+    width: auto;
+  }
+  
+  .online{
+    height: 600px;
+    padding-top: 1%;
+    background-color: burlywood;
+    opacity: 0.5;
+    margin: 3%;
+    border-radius: 10px;
+  }
+  
+  .text-normal{
+    text-decoration: none;
+    color: black;
+  }
+  
+  .text-normal:hover{
+    text-decoration: none;
+  }
+  
+  .vertical-center {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+  }
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  

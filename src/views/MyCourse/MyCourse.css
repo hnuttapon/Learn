@@ -1,0 +1,149 @@
+.box{
+    width: 300px;
+    height: 200px;
+    top: 0px;
+}
+
+.myCourseBody{
+    background:linear-gradient(45deg, #F1E3F3 30%, #FFEECF 90%);
+    background-image: url("https://www.transparenttextures.com/patterns/black-linen.png");
+    background-color:#4AAD52;
+    box-shadow: 0 1px 20px black;
+    z-index: -1;
+}  
+
+.courseImg{
+    margin-top: 20px;
+    border-top-left-radius: 10px; 
+    border-bottom-left-radius: 10px;
+    width:100%;
+    height:364px;
+    margin-bottom: 25px;
+    padding-right: 0% !important;
+}
+
+.courseDetail{
+    border-top-right-radius: 10px; 
+    border-bottom-right-radius: 10px;  
+    margin-top: 20px;
+    background-color:#FCFCFC;
+    height:364px;
+}
+
+/* .sectionMenu{
+    position: sticky; 
+    display: contents;
+    top:0;
+    width: 100px;
+    
+} */
+
+.registerButton{
+    background: linear-gradient(45deg, #7BE495 5%, #329D9C 90%); 
+    font-family: 'Kanit', sans-serif !important;
+    color:white !important;
+    font-size:20px !important;
+    font-weight:500 !important;
+    width:90% !important;
+    margin-top:20px !important;
+}
+
+.exampleButton{
+    border-color: #329D9C !important;
+    font-family: 'Kanit', sans-serif !important;
+    color:#329D9C !important;
+    font-size:20px !important;
+    font-weight:500 !important;
+    width:90% !important;
+    margin-top:20px !important;
+}
+
+.margin5{
+    margin-left:auto;
+    margin-right:auto;
+}
+
+@media only screen and (max-width: 1200px) {
+    .container-xl{
+        padding-left: 0px;
+        margin-top: 0px;
+    }
+    .myCourseBody{
+        padding-bottom:0px;
+        padding-top: 0px;
+        background:linear-gradient(45deg, #F1E3F3 30%, #FFEECF 90%);
+    }  
+    .courseImg{
+        margin-top: 0px;
+        margin-bottom: 0px;
+        border-top-left-radius: 0px; 
+        border-bottom-left-radius: 0px;
+        padding-right: 0px !important;
+    }
+    .courseDetail{
+        margin-top: 0px;
+        border-top-right-radius: 0px; 
+        border-bottom-right-radius: 0px;
+    }
+    .sectionMenu{
+        display: none;
+    }
+    .margin5{
+        margin-left:5%;
+        margin-right:5%;
+    }
+    
+} 
+
+@media only screen and (max-width: 992px) {
+    .container-xl{
+        margin-left: 0%;
+        margin-right: 0%;
+    }
+    .courseDetail{
+        height:390px;
+    }
+    .courseImg{
+        height:390px;
+    }
+    .margin5{
+        margin-left:0%;
+        margin-right:0%;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .container-xl{
+        margin-left: 0% ;
+        margin-right: 0%;
+    }
+    .courseImg{
+        height:340px;
+        padding-right: 0px !important;
+    }
+    .courseDetail{
+        padding-left: 10%;
+    }
+    .registerButton{
+        width: 40% !important;
+        align-items: left;
+    }
+    .exampleButton{
+        width: 40% !important;
+        align-items: left;
+        margin-left: 20px !important;
+    }
+}
+
+@media only screen and (max-width: 576px) {
+    .container-xl{
+        margin-left: 0%;
+        margin-right: 0%;
+    }
+    .exampleButton{
+        width: 50% !important;
+    }
+    .registerButton{
+        display: block;
+    }
+}

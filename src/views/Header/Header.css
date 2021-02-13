@@ -1,0 +1,13 @@
+.nav-link{
+    font-family: 'Kanit', sans-serif;
+    width: 125px;
+    text-align: center;
+  }
+  .nav-link:hover {
+    background-color: #0B5351;
+    border-radius: 10px;
+    text-decoration: none;
+    color: black;
+    
+  }
+  
