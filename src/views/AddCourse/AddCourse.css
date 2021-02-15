@@ -43,40 +43,18 @@
     /* background-image: url("https://www.transparenttextures.com/patterns/black-linen.png"); */
 }
 
-.root {
-  max-width: 345;
-  text-align: center;
-  border-radius: 2px;
-  padding-top: 35px;
-  position: relative;
-  top: -50px;
-  z-index: 0;
-  box-shadow: '0 1px 8px grey';
+.ck-editor__editable_inline {
+    min-height: 100px;
+    width: 1200px;
+    max-height: 700px;
 }
 
-.infoCard {
-  max-width: 345;
-  text-align: center;
-  border-radius: 2px;
-  padding-top: 3px;
-  min-height: 290px;
-  text-align: left;
-  z-index: 0;
-}
-
-.fade-in {
-	opacity: 1;
-	animation-name: fadeInOpacity;
-	animation-iteration-count: 1;
-	animation-timing-function: ease-in;
-	animation-duration: 0.6s;
-}
-
-@keyframes fadeInOpacity {
-	0% {
-		opacity: 0;
-	}
-	100% {
-		opacity: 1;
-	}
+.App {
+    width: 1200px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    box-shadow: 0 1px 5px rgb(138, 137, 137);
 }

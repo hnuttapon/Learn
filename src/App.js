@@ -13,8 +13,9 @@ const loading = (
 const TheLayout = React.lazy(() => import('./containers/TheLayout'));
 const CourseDescription = React.lazy(() => import('./views/MyCourse/MyCourse'));
 const AllCourse = React.lazy(() => import('./views/AllCourse/AllCourse'));
-const ManagerDashboard = React.lazy(() => import('./views/AllCourse/AllCourse'));
 const MyTeam = React.lazy(() => import('./views/MyTeam/MyTeam'));
+const AddCourseClass = React.lazy(() => import('./views/AddCourse/AddCourseClass'));
+const AddCourseOnline = React.lazy(() => import('./views/AddCourse/AddCourseOnline'));
 
 class App extends Component {
 
@@ -28,6 +29,8 @@ class App extends Component {
             <Route path="/MyCourse" component={CourseDescription} />
             <Route path="/AllCourse" component={AllCourse} />
             <Route path="/MyTeam" component={MyTeam} />
+            <Route path="/AddCourseClass" component={AddCourseClass} />
+            <Route path="/AddCourseOnline" component={AddCourseOnline} />
             {/* <Route component={NoPageFound} /> */}
           </Switch>
         </React.Suspense>

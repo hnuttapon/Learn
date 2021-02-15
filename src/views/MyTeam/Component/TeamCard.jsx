@@ -3,6 +3,8 @@ import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import Avatar from "../../Course/CourseCard/Component/avatar";
+import Divider from '@material-ui/core/Divider';
+import '../MyTeam.css';
 
 import { CProgress, CCallout } from '@coreui/react'
 
@@ -26,6 +28,7 @@ const useStyles = makeStyles({
         minHeight: '290px',
         textAlign: 'left',
         'z-index': '0',
+        transition:' all 0.5s ease-out',
     }
 });
 
@@ -45,7 +48,7 @@ const TeamCard = (props) => {
                                 <Avatar width='150px' height="150px" zIndex="1" img={props.img} />
                             </div>
                         </center>
-                        <Card className={classes.root}>
+                        <Card className="root">
                             <CardContent>
                                 <h4>{props.name}</h4>
                                 <h5>Position : {props.position}</h5>
@@ -58,7 +61,7 @@ const TeamCard = (props) => {
             {
                 isHover && (
                     <div >
-                        <Card className={classes.infoCard}>
+                        <Card className="infoCard fade-in">
                             <CardContent>
                                 <CCallout color="warning" style={{marginTop:'0px',marginBottom:'10px'}}>
                                     <h4 style={{ color: '#476A6F' }}>Information</h4>
@@ -76,7 +79,6 @@ const TeamCard = (props) => {
                                 <h5 style={{ fontSize: '18px', fontWeight: '400', display: 'inline', color: 'grey' }}>IDPs </h5>
                                 <h5 style={{ fontSize: '18px', fontWeight: '400', display: 'inline-block' }}>: {props.position}</h5>
 
-
                                 <div className="progress-group ">
                                     <div className="progress-group-header">
                                         <span className="title" style={{ fontSize: '18px', fontWeight: '400', color: 'grey' }}>Mandatory %</span>
@@ -86,7 +88,7 @@ const TeamCard = (props) => {
                                         <CProgress className="progress-xs" color="success" value="67" />
                                     </div>
                                 </div>
-                                <div className="progress-group ">
+                                <div className="progress-group">
                                     <div className="progress-group-header">
                                         <span className="title" style={{ fontSize: '18px', fontWeight: '400', color: 'grey' }}>IDP %</span>
                                         <span className="ml-auto font-weight-bold">67% </span>
@@ -96,7 +98,7 @@ const TeamCard = (props) => {
                                     </div>
                                 </div>
 
-                                <h5 style={{ fontSize: '18px', fontWeight: '400', display: 'inline', color: 'grey' }}>E-Learning Man Hours </h5>
+                                <h5 style={{ fontSize: '18px', fontWeight: '400', display: 'inline', color: 'grey'}}>E-Learning Man Hours </h5>
                                 <h5 style={{ fontSize: '18px', fontWeight: '400', display: 'inline-block' }}>: 45</h5>
 
                                 <div style={{ display: 'block' }} />
