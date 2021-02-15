@@ -31,6 +31,9 @@ const MyTeam = (props) => {
                   name={teamItem.name}
                   position={teamItem.position}
                   department={teamItem.department}
+                  Dialogue={teamItem.Dialogue}
+                  IDPs={teamItem.IDPs}
+                  PL={teamItem.PL}
                   img={teamItem.img}
                   />
                 </div>

@@ -4,6 +4,9 @@ const MyTeamData = [
         name: "Nuttapon Hankamolsiri",
         position: "Developer", 
         department: "HR",
+        Dialogue: "complete",
+        IDPs: "inProgress",
+        PL: "SL4",
         img: "https://image.freepik.com/free-vector/businessman-character-avatar-isolated_24877-60111.jpg",
     },
     {
@@ -11,6 +14,9 @@ const MyTeamData = [
         name: "Nuttapon Hankamolsiri",
         position: "Developer", 
         department: "HR",
+        Dialogue: "incomplete",
+        IDPs: "inProgress",
+        PL: "SL4",
         img: "https://image.freepik.com/free-vector/businessman-character-avatar-isolated_24877-60111.jpg",
     },
     {
@@ -18,6 +24,9 @@ const MyTeamData = [
         name: "Nuttapon Hankamolsiri",
         position: "Developer", 
         department: "HR",
+        Dialogue: "complete",
+        IDPs: "inProgress",
+        PL: "SL4",
         img: "https://image.freepik.com/free-vector/businessman-character-avatar-isolated_24877-60111.jpg",
     },
     {
@@ -25,6 +34,9 @@ const MyTeamData = [
         name: "Nuttapon Hankamolsiri",
         position: "Developer", 
         department: "HR",
+        Dialogue: "incomplete",
+        IDPs: "inProgress",
+        PL: "SL4",
         img: "https://image.freepik.com/free-vector/businessman-character-avatar-isolated_24877-60111.jpg",
     },
     //////////////////
@@ -33,6 +45,9 @@ const MyTeamData = [
         name: "Nuttapon Hankamolsiri",
         position: "Developer", 
         department: "HR",
+        Dialogue: "complete",
+        IDPs: "inProgress",
+        PL: "SL4",
         img: "https://image.freepik.com/free-vector/businessman-character-avatar-isolated_24877-60111.jpg",
     },
     {
@@ -40,6 +55,9 @@ const MyTeamData = [
         name: "Nuttapon Hankamolsiri",
         position: "Developer", 
         department: "HR",
+        Dialogue: "complete",
+        IDPs: "incomplete",
+        PL: "SL4",
         img: "https://image.freepik.com/free-vector/businessman-character-avatar-isolated_24877-60111.jpg",
     },
     {
@@ -47,6 +65,9 @@ const MyTeamData = [
         name: "Nuttapon Hankamolsiri",
         position: "Developer", 
         department: "HR",
+        Dialogue: "complete",
+        IDPs: "inProgress",
+        PL: "SL4",
         img: "https://image.freepik.com/free-vector/businessman-character-avatar-isolated_24877-60111.jpg",
     },
     {
@@ -54,6 +75,9 @@ const MyTeamData = [
         name: "Nuttapon Hankamolsiri",
         position: "Developer", 
         department: "HR",
+        Dialogue: "incomplete",
+        IDPs: "inProgress",
+        PL: "SL4",
         img: "https://image.freepik.com/free-vector/businessman-character-avatar-isolated_24877-60111.jpg",
     },
     //////////////////

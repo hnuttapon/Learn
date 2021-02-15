@@ -1,41 +1,25 @@
 import React, { useState } from 'react';
-import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import Avatar from "../../Course/CourseCard/Component/avatar";
-import Divider from '@material-ui/core/Divider';
 import '../MyTeam.css';
 
-import { CProgress, CCallout } from '@coreui/react'
-
-
-const useStyles = makeStyles({
-    root: {
-        maxWidth: 345,
-        textAlign: 'center',
-        borderRadius: '2px',
-        paddingTop: '35px',
-        position: 'relative',
-        top: '-50px',
-        'z-index': '0',
-        // 'box-shadow': '0 1px 8px grey',
-    },
-    infoCard: {
-        maxWidth: 345,
-        textAlign: 'center',
-        borderRadius: '2px',
-        paddingTop: '3px',
-        minHeight: '290px',
-        textAlign: 'left',
-        'z-index': '0',
-        transition:' all 0.5s ease-out',
-    }
-});
+import { CProgress, CCallout,CBadge } from '@coreui/react';
 
 const TeamCard = (props) => {
-    const classes = useStyles();
     const [isHover, setIsHover] = useState(false);
 
+    const status = (status) => {
+        if (status == "complete") {
+            return <CBadge style={{fontWeight:'400'}} className="mr-1" color="success">สำเร็จ</CBadge>;
+        }
+        else if (status == "inProgress") {
+            return <CBadge style={{fontWeight:'400'}} className="mr-1" color="warning">กำลังดำเนินการ</CBadge>;
+        }
+        else if (status == "incomplete"){
+            return <CBadge  style={{fontWeight:'400'}} className="mr-1" color="danger">ยังไม่สำเร็จ</CBadge>;
+        }
+    }
 
 
     return (
@@ -44,11 +28,11 @@ const TeamCard = (props) => {
                 isHover == false && (
                     <div >
                         <center>
-                            <div className={classes.avatar}>
+                            <div>
                                 <Avatar width='150px' height="150px" zIndex="1" img={props.img} />
                             </div>
                         </center>
-                        <Card className="root">
+                        <Card className="root" >
                             <CardContent>
                                 <h4>{props.name}</h4>
                                 <h5>Position : {props.position}</h5>
@@ -67,17 +51,17 @@ const TeamCard = (props) => {
                                     <h4 style={{ color: '#476A6F' }}>Information</h4>
                                 </CCallout>
                                 <h5 style={{ fontSize: '18px', fontWeight: '400', display: 'inline', color: 'grey' }}>PL </h5>
-                                <h5 style={{ fontSize: '18px', fontWeight: '400', display: 'inline-block' }}>: {props.position}</h5>
+                                <h5 style={{ fontSize: '18px', fontWeight: '400', display: 'inline-block' }}>: {props.PL}</h5>
 
                                 <div style={{ display: 'block' }} />
 
                                 <h5 style={{ fontSize: '18px', fontWeight: '400', display: 'inline', color: 'grey' }}>Dialogue </h5>
-                                <h5 style={{ fontSize: '18px', fontWeight: '400', display: 'inline-block' }}>: {props.position}</h5>
+                                <h5 style={{ fontSize: '18px', fontWeight: '400', display: 'inline-block' }}>: {status(props.Dialogue)}</h5>
 
                                 <div style={{ display: 'block' }} />
 
                                 <h5 style={{ fontSize: '18px', fontWeight: '400', display: 'inline', color: 'grey' }}>IDPs </h5>
-                                <h5 style={{ fontSize: '18px', fontWeight: '400', display: 'inline-block' }}>: {props.position}</h5>
+                                <h5 style={{ fontSize: '18px', fontWeight: '400', display: 'inline-block' }}>: {status(props.IDPs)}</h5>
 
                                 <div className="progress-group ">
                                     <div className="progress-group-header">
