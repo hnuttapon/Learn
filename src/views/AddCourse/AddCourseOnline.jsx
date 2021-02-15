@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Topic from "../Course/CourseCard/Component/Topic";
 import Title from "../Course/CourseCard/Component/Title";
 import Dropdown from "./Component/dropdown";
@@ -10,14 +10,144 @@ import {
     CCallout, CInputGroup, CInputGroupAppend,
     CInputGroupPrepend, CInputGroupText, CInput, CFormGroup, CButton, CForm
 } from '@coreui/react'
-import TimePicker from "./Component/timepicker";
 
-import Checkbox from '@material-ui/core/Checkbox';
-import FormGroup from '@material-ui/core/FormGroup';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import FormControl from '@material-ui/core/FormControl';
+import { makeStyles } from '@material-ui/core/styles';
+import Accordion from '@material-ui/core/Accordion';
+import AccordionSummary from '@material-ui/core/AccordionSummary';
+import AccordionDetails from '@material-ui/core/AccordionDetails';
+import Typography from '@material-ui/core/Typography';
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+
+import CreateArea from "./Video/CreateArea";
+import Chapter from "./Video/Chapter";
+import Note from "./Video/Note";
+
+const useStyles = makeStyles((theme) => ({
+    root: {
+        width: '70%',
+    },
+    heading: {
+        fontSize: theme.typography.pxToRem(25),
+        'font-family': 'Kanit, sans-serif',
+        'font-weight': 500,
+        flexBasis: '100%',
+        flexShrink: 0,
+        textAlign: 'left',
+        "margin-bottom": '10px',
+        color: '#3C1518'
+    },
+    secondaryHeading: {
+        fontSize: theme.typography.pxToRem(20),
+        color: theme.palette.text.secondary,
+    },
+    'topcontainer': {
+        background: '#2176AE',
+        width: '100%',
+        'padding-top': '1%',
+        marginTop: '1%',
+        'padding-bottom': '1%'
+    },
+    'bottomcontainer': {
+        background: '#0FA3B1',
+        width: '95%',
+        'padding-top': '0.5%',
+        marginLeft: 'auto',
+        marginRight: 'auto',
+    },
+    'sectioncontainer': {
+        background: 'brown',
+        'border-radius': '0px',
+        width: '95%'
+    },
+    sectionTitleContainer: {
+        background: 'brown',
+        'border-radius': '0px',
+        width: '100%',
+    },
+    'chaptercontainer': {
+        background: 'orange',
+        'border-radius': '0px',
+        width: '80%'
+    },
+    'topiccontainer': {
+        background: 'white',
+        width: '80%'
+    },
+}));
 
 const AddCourseOnline = () => {
+
+    const classes = useStyles();
+    const [expanded, setExpanded] = useState(false);
+    const [expandedChap, setExpandedChap] = useState(false);
+    const [expandedTopic, setExpandedTopic] = useState(false);
+
+    const handleChangeAccordion = (panel) => (event, isExpanded) => {
+        setExpanded(isExpanded ? panel : false);
+    };
+
+    const handleChangeAccordionChap = (chapter) => (eventChap, isExpandedChap) => {
+        setExpandedChap(isExpandedChap ? chapter : false);
+    };
+
+    const handleChangeAccordionTopic = (topic) => (eventTop, isExpandedTopic) => {
+        setExpandedTopic(isExpandedTopic ? topic : false);
+    };
+
+    const [notes, setNotes] = useState([]);
+    const [showChap, setShowChap] = useState([]);
+    const [showTopic, setShowTopic] = useState([]);
+
+    function addNote(newNote) {
+        setNotes(prevNotes => {
+            return [...prevNotes, newNote];
+        });
+    }
+
+    function addChapter(newChapter) {
+        setShowChap(prevChapter => {
+            return [...prevChapter, newChapter];
+        });
+    }
+
+    function addTopic(newTopic) {
+        setShowTopic(prevTopic => {
+            return [...prevTopic, newTopic];
+        });
+    }
+
+    function deleteNote(id) {
+        setNotes(prevNotes => {
+            return prevNotes.filter((noteItem, index) => {
+                return index !== id;
+            });
+        });
+    }
+
+    const sectionBackground = (id) => {
+        if (id % 4 == 0) {
+            return "#2F9C95";
+        }
+        else if (id % 4 == 1) {
+            return "#38423B";
+        }
+        else if (id % 4 == 2) {
+            return "#00A878";
+        }
+        else if (id % 4 == 3) {
+            return "#3F5E5A";
+        }
+    }
+
+    const chapterBackground = (id) => {
+        if (id % 2 == 0) {
+            return "#6B6D76";
+        }
+        else if (id % 2 == 1) {
+            return "#A69888";
+        }
+    }
+
     return (
         <div style={{ "font-family": "Kanit, sans-serif" }}>
             <Header bgColor='#63B995' />
@@ -108,6 +238,83 @@ const AddCourseOnline = () => {
                         <h4 style={{ color: 'black' }}>รูปผู้สอน</h4>
                     </CCallout>
                     <Dropzone width="350px" height="350px" />
+
+                    <CCallout color="success" style={{ marginTop: '0px', marginBottom: '30px', marginTop: '30px', marginLeft: '3%' }}>
+                        <h4 style={{ color: 'black' }}>เพิ่มวิดีโอ</h4>
+                    </CCallout>
+
+                    {notes.map((noteItem, noteindex) => {
+                        return (
+                            <center>
+                                <Accordion className={classes.sectioncontainer} style={{ backgroundColor: sectionBackground(noteindex) }} expanded={expanded === 'panel' + (noteindex + 1)} onChange={handleChangeAccordion('panel' + (noteindex + 1))}>
+                                    <AccordionSummary className={classes.sectionTitleContainer} style={{ backgroundColor: sectionBackground(noteindex) }}
+                                        expandIcon={<ExpandMoreIcon style={{ color: 'white' }} />}
+                                        aria-controls="panel1bh-content"
+                                        id="panel1bh-header"
+                                    >
+                                        <Typography className={classes.heading} style={{ color: 'white' }}>Section {noteindex + 1}  {noteItem.title}</Typography>
+                                    </AccordionSummary>
+                                    {showChap.filter(id => id.notekey === noteindex).map((chapterItem, chapindex) => {
+                                        return (
+                                            <Accordion className={classes.chaptercontainer} style={{backgroundColor:chapterBackground(chapindex)}} expanded={expandedChap === 'chapter' + (chapindex + 1)} onChange={handleChangeAccordionChap('chapter' + (chapindex + 1))}>
+                                                <AccordionSummary style={{backgroundColor:chapterBackground(chapindex)}}
+                                                    expandIcon={<ExpandMoreIcon style={{ color: 'white' }} />}
+                                                    aria-controls="panel1bh-content"
+                                                    id="panel1bh-header"
+                                                >
+                                                    <Typography className={classes.heading} style={{ color: 'white' }}>Chapter {chapindex + 1}  {chapterItem.title}</Typography>
+                                                </AccordionSummary>
+
+                                                {showTopic.filter(id => id.notekey === noteindex && id.chapkey === chapindex).map((topicItem, topicindex) => {
+                                                    return (
+                                                        <Accordion className={classes.topiccontainer}  expanded={expandedTopic === 'topic' + (topicindex + 1)} onChange={handleChangeAccordionTopic('topic' + (topicindex + 1))}>
+                                                            <AccordionSummary 
+                                                                expandIcon={<ExpandMoreIcon style={{ color: '#3C1518' }} />}
+                                                                aria-controls="panel1bh-content"
+                                                                id="panel1bh-header"
+                                                            >
+                                                                <Typography className={classes.heading}>Topic {topicindex + 1}  {topicItem.title}</Typography>
+                                                            </AccordionSummary>
+                                                            <AccordionDetails>
+
+                                                                <Dropzone />
+
+
+                                                            </AccordionDetails>
+                                                        </Accordion>
+                                                    );
+                                                })}
+                                                <Chapter
+                                                    key={chapindex}
+                                                    id={chapindex}
+                                                    title={chapterItem.title}
+                                                    content={chapterItem.content}
+                                                    noteindex={noteindex}
+                                                    addTopic={addTopic}
+                                                    bgColor={chapterBackground(chapindex)}
+                                                />
+                                            </Accordion>
+                                        );
+                                    })}
+                                    <Note
+                                        onAdd={addNote}
+                                        key={noteindex}
+                                        id={noteindex}
+                                        title={noteItem.title}
+                                        content={noteItem.content}
+                                        onDelete={deleteNote}
+                                        addChapter={addChapter}
+                                        bgColor={sectionBackground(noteindex)}
+                                    />
+                                </Accordion>
+                            </center>
+                        );
+                    })}
+                    <div className={classes.bottomcontainer}>
+                        <center>
+                            <CreateArea onAdd={addNote} />
+                        </center>
+                    </div>
 
                 </div>
             </div>

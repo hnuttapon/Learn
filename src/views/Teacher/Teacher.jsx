@@ -1,9 +1,9 @@
 import React from "react";
 import Title from "../Course/CourseCard/Component/Title";
 import Header from "../Header/Header";
-import "./MyTeam.css";
-import TeamCard from "./Component/TeamCard";
-import MyTeamData from "./MyTeamData";
+import "./Teacher.css";
+import TeacherCard from "./Component/TeacherCard";
+import TeacherData from "./TeacherData";
 
 const MyTeam = (props) => {
 
@@ -23,9 +23,9 @@ const MyTeam = (props) => {
         <div className="container-xl">
           <div className="row">
           {
-              MyTeamData.map(teamItem=>(
+              TeacherData.map(teamItem=>(
                 <div className="col-sm-12 col-md-6 col-lg-4 col-xl-3" align="center">
-                  <TeamCard
+                  <TeacherCard
                   key={teamItem.id}
                   index={teamItem.id}
                   name={teamItem.name}
