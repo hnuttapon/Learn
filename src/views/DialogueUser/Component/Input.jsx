@@ -25,7 +25,7 @@ function CourseInput(props) {
     }
 
   return (
-    <div className="row" style={{marginBottom:'10px'}}>
+    <div className="row" style={{marginBottom:'10px',marginLeft:'auto',marginRight:'auto'}}>
         <div className="col-xl-1 col-lg-1 col-md-1 col-sm-12 col-12" align="center" >
             <h5 className="no">
                 {props.no} 

@@ -6,21 +6,22 @@
     margin-left: 5%;
     clear: both;
 }
+
 .addButton{
-    background-color: #4C6085 !important;
+    background-color: #63B995 !important;
     font-family: 'Kanit', sans-serif !important;
     color:white !important;
     font-size:20px !important;
     font-weight:500 !important;
     width:20% !important;
-    margin-top:20px !important;
-    margin-left:2% !important;
+    margin-top:40px !important;
+    clear: both !important;
 }
 
 .addIcon{
-    background-color:white;
     border-radius:50%;
-    color:black;
+    color:white;
+    background-color:#63B995;
     padding:'3px';
 }
 
@@ -44,7 +45,7 @@
 
 .IDPBox {
     padding: 10px;
-    padding-right: 20px;
+    padding-right: 0px;
     padding-bottom: 50px;
     padding-top: 40px;
     box-shadow: 0 1px 20px black;
