@@ -17,6 +17,9 @@ const MyTeam = React.lazy(() => import('./views/MyTeam/MyTeam'));
 const AddCourseClass = React.lazy(() => import('./views/AddCourse/AddCourseClass'));
 const AddCourseOnline = React.lazy(() => import('./views/AddCourse/AddCourseOnline'));
 const Teacher = React.lazy(() => import('./views/Teacher/Teacher'));
+const AddTeacher = React.lazy(() => import('./views/AddTeacher/AddTeacher'));
+const DialogueUser = React.lazy(() => import('./views/DialogueUser/DialogueUser'));
+
 
 const App = () => {
     return (
@@ -31,6 +34,8 @@ const App = () => {
                     <Route path="/AddCourseClass" component={AddCourseClass} />
                     <Route path="/AddCourseOnline" component={AddCourseOnline} />
                     <Route path="/Teacher" component={Teacher} />
+                    <Route path="/AddTeacher" component={AddTeacher} />
+                    <Route path="/Dialogue/User" component={DialogueUser} />
                     {/* <Route component={NoPageFound} /> */}
                 </Switch>
             </React.Suspense>
