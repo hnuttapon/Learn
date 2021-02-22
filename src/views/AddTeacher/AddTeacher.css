@@ -58,3 +58,21 @@
     margin-top: 20px;
     box-shadow: 0 1px 5px rgb(138, 137, 137);
 }
+
+.addButton{
+    background-color: #63B995 !important;
+    font-family: 'Kanit', sans-serif !important;
+    color:white !important;
+    font-size:20px !important;
+    font-weight:500 !important;
+    width:20% !important;
+    margin-top:40px !important;
+    clear: both !important;
+}
+
+.addIcon{
+    border-radius:50%;
+    color:white;
+    background-color:#63B995;
+    padding:'3px';
+}

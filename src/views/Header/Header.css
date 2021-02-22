@@ -2,6 +2,7 @@
     font-family: 'Kanit', sans-serif;
     width: 125px;
     text-align: center;
+    padding-top:'10px';
   }
   .nav-link:hover {
     background-color: #0B5351;

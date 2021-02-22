@@ -35,10 +35,7 @@ const TeacherCard = (props) => {
     const classes = useStyles();
     const [isHover, setIsHover] = useState(false);
 
-
-
     return (
-
         <div >
             <center>
                 <div className={classes.avatar}>

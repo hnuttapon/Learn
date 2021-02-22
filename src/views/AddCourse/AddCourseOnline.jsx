@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import Topic from "../Course/CourseCard/Component/Topic";
 import Title from "../Course/CourseCard/Component/Title";
 import Dropdown from "./Component/dropdown";
 import Editor from "./Component/TextEditors";
@@ -8,7 +7,7 @@ import './AddCourse.css';
 import Header from "../Header/Header";
 import {
     CCallout, CInputGroup, CInputGroupAppend,
-    CInputGroupPrepend, CInputGroupText, CInput, CFormGroup, CButton, CForm
+    CInputGroupPrepend, CInputGroupText, CInput, CFormGroup, CForm
 } from '@coreui/react'
 
 import { makeStyles } from '@material-ui/core/styles';

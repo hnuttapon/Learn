@@ -4,7 +4,7 @@ import "./Header.css";
 const Header = (props) => {
   return (
     // background: 'linear-gradient(45deg, #0B7189 5%, #7BE495 60% , #329D9C 75%)'
-    <nav class="navbar navbar-expand-lg navbar-dark" style={{ backgroundColor: props.bgColor, minHeight: '60px' }}>
+    <nav className="navbar navbar-expand-lg navbar-dark" style={{ backgroundColor: props.bgColor, minHeight: '60px','z-index':1,paddingBottom:props.paddingBottom }}>
       <h1 style={{
         color: 'white',
         'font-family': 'Kanit, sans-serif',
@@ -15,31 +15,28 @@ const Header = (props) => {
         &nbsp;
         SCG E-Learning
       </h1>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="true" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
+      <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="true" aria-label="Toggle navigation">
+        <span className="navbar-toggler-icon"></span>
       </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ml-auto">
-          <li class="nav-item active">
+      <div className="collapse navbar-collapse" id="navbarNav">
+        <ul className="navbar-nav ml-auto">
+          <li className="nav-item active">
             <a className="nav-link" href="/#/AllCourse">All Course</a>
           </li>
-          <li class="nav-item active">
-            <a className="nav-link" href="/AddCourse">เพิ่มหลักสูตรใหม่</a>
-          </li>
-          <li class="nav-item active">
+          <li className="nav-item active">
             <a className="nav-link" href="/#/MyCourse">คอร์สของฉัน</a>
           </li>
-          <li class="nav-item active">
+          <li className="nav-item active">
             <a className="nav-link" href="/#/Dialogue">Dialogue</a>
           </li>
-          <li class="nav-item active">
+          <li className="nav-item active">
             <a className="nav-link" href="/#/dashboard">Dashboard</a>
           </li>
-          <li class="nav-item dropdown active">
-            <a class="nav-link dropdown-toggle" data-toggle="dropdown">เพิ่มหลักสูตรใหม่</a>
-            <div class="dropdown-menu">
-              <a class="dropdown-item" href="/#/AddCourseOnline">Online</a>
-              <a class="dropdown-item" href="/#/AddCourseClass">Classroom</a>
+          <li className="nav-item dropdown active">
+            <a className="nav-link dropdown-toggle" data-toggle="dropdown">เพิ่มหลักสูตรใหม่</a>
+            <div className="dropdown-menu">
+              <a className="dropdown-item" href="/#/AddCourseOnline">Online</a>
+              <a className="dropdown-item" href="/#/AddCourseClass">Classroom</a>
             </div>
           </li>
         </ul>

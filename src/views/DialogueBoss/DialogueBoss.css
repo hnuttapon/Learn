@@ -1,0 +1,78 @@
+.titles {
+    color: #183059;
+    margin-top: 2%;
+    font-family: 'Kanit', sans-serif;
+    font-weight: 400;
+    margin-left: 5%;
+    clear: both;
+}
+
+.addButton{
+    background-color: #63B995 !important;
+    font-family: 'Kanit', sans-serif !important;
+    color:white !important;
+    font-size:20px !important;
+    font-weight:500 !important;
+    width:20% !important;
+    margin-top:40px !important;
+    clear: both !important;
+}
+
+.addIcon{
+    border-radius:50%;
+    color:white;
+    background-color:#63B995;
+    padding:'3px';
+}
+
+.SummaryBox{
+    width: 80%;
+    padding: 3px;
+    margin-top: 20px;
+    border-radius: 10px;
+}
+
+.titleBox {
+    padding: 15px;
+    text-align: center;
+    margin-bottom: 0px;
+    margin-top: 0px;
+    width: 60%;
+    border-bottom-left-radius: 50px;
+    border-bottom-right-radius: 50px;
+    z-index: 1;
+}
+
+.IDPBox {
+    padding: 10px;
+    padding-right: 0px;
+    padding-bottom: 50px;
+    padding-top: 40px;
+    box-shadow: 0 1px 20px black;
+    background-image: url("https://www.transparenttextures.com/patterns/cubes.png");
+}
+
+.topicBackground {
+    background-color: #6DA34D;
+    padding-top: 10px;
+    /* background-image: url("https://www.transparenttextures.com/patterns/black-linen.png"); */
+}
+
+@media only screen and (max-width: 992px) {
+    .addButton {
+        width:30% !important;
+        margin-left:0% !important;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .addButton {
+        width:40% !important;
+    }
+}
+
+@media only screen and (max-width: 576px) {
+    .addButton {
+        width:45% !important;
+    }
+}

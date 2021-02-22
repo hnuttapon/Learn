@@ -3,10 +3,10 @@ import Title from "../Course/CourseCard/Component/Title";
 import Header from "../Header/Header";
 import Input from "./Component/Input";
 import Button from '@material-ui/core/Button';
-import AddIcon from "@material-ui/icons/Add";
+import SaveIcon from '@material-ui/icons/Save';
 import "./DialogueUser.css";
 import { CCallout } from '@coreui/react';
-import SaveIcon from '@material-ui/icons/Save';
+
 
 
 function Dialogue(props) {
@@ -45,7 +45,6 @@ function Dialogue(props) {
         });
     }
 
-
     return (
         <div>
             <Header bgColor='#63B995' />
@@ -64,6 +63,7 @@ function Dialogue(props) {
                     <CCallout color="success" style={{ marginTop: '0px', marginBottom: '10px' }}>
                         <h3 style={{ color: 'black' }}>My Self Assessment Gap</h3>
                     </CCallout>
+                    
                     {notes.map((noteItem, index) => {
                         return (
                             <Input
@@ -76,7 +76,7 @@ function Dialogue(props) {
                             />
                         );
                     })}
-                    {/* {addNote()} */}
+                
                     <button style={{ backgroundColor: props.bgColor, border: 'none', boxShadow: 'none', marginLeft: '87%'}} variant="contained" onClick={addNote}>
                         <img width="40px" height="40px" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEuMSIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHhtbG5zOnN2Z2pzPSJodHRwOi8vc3ZnanMuY29tL3N2Z2pzIiB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiIgeD0iMCIgeT0iMCIgdmlld0JveD0iMCAwIDE1MiAxNTIiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDUxMiA1MTIiIHhtbDpzcGFjZT0icHJlc2VydmUiPjxnPjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgaWQ9IkxheWVyXzIiIGRhdGEtbmFtZT0iTGF5ZXIgMiI+PGcgaWQ9Il8wMS5BZGQiIGRhdGEtbmFtZT0iMDEuQWRkIj48cGF0aCBkPSJtMTE3IDBoLTgyYTM1LjEgMzUuMSAwIDAgMCAtMzUgMzV2ODJhMzUuMSAzNS4xIDAgMCAwIDM1IDM1aDgyYTM1LjEgMzUuMSAwIDAgMCAzNS0zNXYtODJhMzUuMSAzNS4xIDAgMCAwIC0zNS0zNXptLTkuNzkgODIuNTVoLTIzLjA3YTEuMzQgMS4zNCAwIDAgMCAtMS4zNSAxLjM1djIzLjFhNi43OSA2Ljc5IDAgMCAxIC0xMy41OCAwdi0yMy4xYTEuMzQgMS4zNCAwIDAgMCAtMS4zNS0xLjM1aC0yMy4wN2E2Ljc5IDYuNzkgMCAxIDEgMC0xMy41OGgyMy4wN2ExLjM0IDEuMzQgMCAwIDAgMS4zNS0xLjM1di0yMy4wN2E2Ljc5IDYuNzkgMCAwIDEgMTMuNTggMHYyMy4wN2ExLjM0IDEuMzQgMCAwIDAgMS4zNSAxLjM4aDIzLjA3YTYuNzkgNi43OSAwIDAgMSAwIDEzLjU4eiIgZmlsbD0iIzM2NjI4OCIgZGF0YS1vcmlnaW5hbD0iIzAwMDAwMCIgc3R5bGU9IiI+PC9wYXRoPjwvZz48L2c+PC9nPjwvc3ZnPg==" />
                     </button>
@@ -105,7 +105,7 @@ function Dialogue(props) {
                     </div>
 
                     <center>
-                        <div style={{display:'block'}}>
+                        <div>
                             <Button variant="contained" onClick={addTarget} className="addButton">
                                 <SaveIcon className="addIcon" />  &nbsp; Save
                         </Button>
