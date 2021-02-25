@@ -64,7 +64,7 @@ const useStyles = makeStyles({
     textAlign:'left',
     width:'100%',
     color:'white',
-    'box-shadow': '20px 20px #BCD8B7',
+    // 'box-shadow': '20px 20px #BCD8B7',
     borderTopLeftRadius: '10px',
     borderTopRightRadius: '10px',
   },
@@ -73,7 +73,7 @@ const useStyles = makeStyles({
     padding:'3px',
     width:'100%',
     color:'white',
-    'box-shadow': '20px 20px #BCD8B7',
+    // 'box-shadow': '20px 20px #BCD8B7',
     borderBottomRightRadius: '10px',
     borderBottomLeftRadius: '10px',
   }

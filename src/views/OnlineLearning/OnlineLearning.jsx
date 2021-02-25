@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles, styled } from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import AppBar from '@material-ui/core/AppBar';
@@ -17,19 +17,21 @@ import AccordionSummary from '@material-ui/core/AccordionSummary';
 import Typography from '@material-ui/core/Typography';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
+import "./OnlineLearning.css";
+
 const drawerWidth = 380;
 
 const useStyles = makeStyles((theme) => ({
     root: {
         display: 'flex',
         padding: '0',
+        minHeight: `calc(100%px)`,
     },
     appBar: {
         width: `calc(100%px)`,
     },
     drawer: {
         width: drawerWidth,
-        flexShrink: 0,
         height: '0px',
         'z-index': 1,
     },
@@ -43,14 +45,15 @@ const useStyles = makeStyles((theme) => ({
     },
     content: {
         flexGrow: 1,
-        backgroundColor: theme.palette.background.default,
-        marginTop: '0px',
+        marginTop: '8vh',
+        height: '92vh',
+        backgroundColor:'#095256'
     },
     heading: {
         fontSize: theme.typography.pxToRem(15),
         flexBasis: '80%',
         flexShrink: 0,
-        textAlign:'left',
+        textAlign: 'left',
     },
 }));
 
@@ -60,32 +63,30 @@ export default function PermanentDrawerRight() {
     const [Video, setVideo] = useState({
         currentSection: 1,
         currentChapter: 1,
+        currentTopic: 1,
     });
 
     const [expanded, setExpanded] = useState(false);
     const [expandedChap, setExpandedChap] = useState(false);
-    const [expandedTopic, setExpandedTopic] = useState(false);
 
     const handleChangeAccordion = (panel) => (event, isExpanded) => {
         setExpanded(isExpanded ? panel : false);
+        setExpandedChap(false);
+   
     };
 
     const handleChangeAccordionChap = (chapter) => (eventChap, isExpandedChap) => {
         setExpandedChap(isExpandedChap ? chapter : false);
     };
 
-    const handleChangeAccordionTopic = (topic) => (eventTop, isExpandedTopic) => {
-        setExpandedTopic(isExpandedTopic ? topic : false);
-    };
-
-
-    const setCurrentVideo = (a, b) => {
+    const setCurrentVideo = (Section, Chapter, Topic) => {
         setVideo({
-            currentSection: a,
-            currentChapter: b,
+            currentSection: Section,
+            currentChapter: Chapter,
+            currentTopic: Topic,
         })
-        console.log("aa");
     };
+
 
 
     return (
@@ -94,19 +95,27 @@ export default function PermanentDrawerRight() {
 
                 <CssBaseline />
                 <AppBar position="fixed" className={classes.appBar}>
-                    <Header bgColor='#4DAA57' />
+                    <Header bgColor='#63B995' />
                 </AppBar>
                 <main className={classes.content}>
-                    {data.filter(id => id.ChapterNo === Video.currentChapter && id.SectionNo === Video.currentSection).map((dataItem) => {
+                    {data.filter(id => id.ChapterNo === Video.currentChapter && id.SectionNo === Video.currentSection && id.TopicNo === Video.currentTopic).map((dataItem) => {
                         return (
-                            <ReactPlayer
+                            <div style={{height:'100%'}}>
+                            <ReactPlayer style={{paddingBottom:'0px'}}
                                 url={dataItem.Video}
                                 controls={true}
                                 width="100%"
-                                height="500px"
+                                height="94%"                    
                             />
+                            <center>
+                            <Typography style={{fontWeight:'200',color:'white',paddingTop:'8px'}}>{dataItem.Topic}</Typography>  
+                            </center>
+                            </div>
+                            
                         );
                     })}
+                    
+                  
                 </main>
                 <Drawer
                     className={classes.drawer}
@@ -117,39 +126,43 @@ export default function PermanentDrawerRight() {
                     anchor="right"
                 >
                     <div className={classes.toolbar} />
+                    <div  style={{backgroundColor:'#2F9C95'}}>
+                        <h1 style={{fontSize:'22px',paddingTop:'18px',textAlign:'center',color:'white'}}>Course Content</h1>
+                    </div>
                     {SectionData.map((setionItem, sectionindex) => {
                         return (
                             <center>
-                                <Accordion expanded={expanded === 'panel' + (sectionindex + 1)} onChange={handleChangeAccordion('panel' + (sectionindex + 1))}>
+                                <Accordion square={true} className="SectionTabBackground"  >
                                     <AccordionSummary
-                                        expandIcon={<ExpandMoreIcon/>}
+                                        expandIcon={<ExpandMoreIcon />}
                                         aria-controls="panel1bh-content"
                                         id="panel1bh-header"
                                     >
-                                        <Typography className={classes.heading} >Section {sectionindex + 1}  {setionItem.SectionName}</Typography>
+                                        <Typography className={classes.heading} ><b>Section {sectionindex + 1}</b>  {setionItem.SectionName}</Typography>
                                     </AccordionSummary>
                                     {ChapterData.filter(id => id.SectionNo === (sectionindex + 1)).map((chapterItem, chapindex) => {
                                         return (
-                                            <Accordion expanded={expandedChap === 'chapter' + (chapindex + 1)} onChange={handleChangeAccordionChap('chapter' + (chapindex + 1))}>
+                                            <Accordion className="ChapterTabBackground" square={true} expanded={expandedChap === 'chapter' + (chapindex + 1)} onChange={handleChangeAccordionChap('chapter' + (chapindex + 1))}>
                                                 <AccordionSummary
-                                                    expandIcon={<ExpandMoreIcon/>}
+                                                    expandIcon={<ExpandMoreIcon />}
                                                     aria-controls="panel1bh-content"
                                                     id="panel1bh-header"
                                                 >
-                                                    <Typography className={classes.heading}>Chapter {chapindex + 1}  {chapterItem.ChapterName}</Typography>
+                                                    <Typography className={classes.heading}><b>Chapter {chapindex + 1} </b> {chapterItem.ChapterName}</Typography>
                                                 </AccordionSummary>
 
-                                                {data.filter(id => id.SectionNo === (sectionindex + 1) && id.ChapterNo === (chapindex+1)).map((dataItem, dataindex) => {
+                                                {data.filter(id => id.SectionNo === (sectionindex + 1) && id.ChapterNo === (chapindex + 1)).map((dataItem, dataindex) => {
                                                     return (
-                                                        <button onClick={() => {
-                                                            setCurrentVideo(dataItem.SectionNo, dataItem.ChapterNo)
+                                                        
+                                                        <button className="VideoTabBackground" style={{width:'100%',padding:'10px',border: 'none'}} onClick={() => {
+                                                            setCurrentVideo(dataItem.SectionNo,dataItem.ChapterNo,dataItem.TopicNo)
                                                         }}>
-                                                            <h2>{dataindex + 1} &nbsp; {dataItem.Topic}</h2>
+                                                            <Typography className={classes.heading} style={{marginLeft:'1%'}}><b>Topic {dataindex + 1} </b> &nbsp; {dataItem.Topic}</Typography>
                                                         </button>
                                                     );
                                                 })}
                                             </Accordion>
-                                        );
+                                        ); 
                                     })}
                                 </Accordion>
                             </center>

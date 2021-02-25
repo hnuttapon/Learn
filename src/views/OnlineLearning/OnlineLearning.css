@@ -6,3 +6,42 @@
     background-image: url("https://www.transparenttextures.com/patterns/cubes.png");
     z-index: 1;
 }
+
+.SectionTabBackground{
+    border: 1px solid lightgray;
+    background-color: #FAFAFA !important;
+    padding-bottom: 15px;
+}
+
+.SectionTabBackground:hover{
+    background-color:#E6E8E6  !important;
+}
+
+.vertical-center {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+
+.MuiDrawer-paperAnchorDockedRight {
+    border-left: 0px !important;
+}
+
+.VideoTabBackground{
+    background-color:#fff !important;
+}
+
+.VideoTabBackground:hover{
+    background-color: #5EB1BF !important;
+    color: white;
+}
+
+.ChapterTabBackground{
+    background-color:#fff !important;
+}
+
+.ChapterTabBackground:hover{
+    background-color:#F5F5F5  !important;
+}
