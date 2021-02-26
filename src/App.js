@@ -29,6 +29,8 @@ const MyHistory = React.lazy(() => import('./views/History/MyHistory/MyHistory')
 const BuyCourseOnline = React.lazy(() => import('./views/BuyCourse/BuyCourseOnline'));
 const BuyCourseClass = React.lazy(() => import('./views/BuyCourse/BuyCourseClass'));
 const Receipt = React.lazy(() => import('./views/BuyCourse/Receipt'));
+const IDP = React.lazy(() => import('./views/IDP/IDP'));
+const AnnualCourse = React.lazy(() => import('./views/IDP/AnnualCourse'));
 
 
 const App = () => {
@@ -56,6 +58,8 @@ const App = () => {
                     <Route path="/BuyCourse/Online" component={BuyCourseOnline} />
                     <Route path="/BuyCourse/Class" component={BuyCourseClass} />
                     <Route path="/BuyCourse/Receipt" component={Receipt} />
+                    <Route path="/IDP" component={IDP} />
+                    <Route path="/AnnualCourse" component={AnnualCourse} />
                     {/* <Route component={NoPageFound} /> */}
                 </Switch>
             </React.Suspense>
