@@ -1,52 +1,31 @@
 import React, { useState } from "react";
-import Title from "../Course/CourseCard/Component/Title";
 import Header from "../Header/Header";
-import Input from "./Component/Input";
-import Button from '@material-ui/core/Button';
-import SaveIcon from '@material-ui/icons/Save';
-import "./DialogueUser.css";
-import { CCallout } from '@coreui/react';
+import Title from "../Course/CourseCard/Component/Title";
+import Output from "./Component/Output";
+import gapData from "./data/gap";
+import ojtData from "./data/ojt";
+import targetData from "./data/target";
+import "./DialogueSummary.css";
 
+import {
+    CCallout
+} from '@coreui/react'
 
+function Dialogue() {
 
-function Dialogue(props) {
-
-    const [notes, setNotes] = useState(["0", "1", "2"]);
-
-    function addNote(newNote) {
-        setNotes(prevNotes => {
-            return [...prevNotes, newNote];
-        });
-    }
+    const [notes, setNotes] = useState([""]);
 
     function deleteNote(id) {
         console.log(id);
         setNotes(prevNotes => {
-            return prevNotes.filter((noteItem, index) => {
-                return index !== id;
-            });
-        });
-    }
-
-    const [target, setTarget] = useState(["0", "1", "2"]);
-
-    function addTarget(newTarget) {
-        setTarget(prevTarget => {
-            return [...prevTarget, newTarget];
-        });
-    }
-
-    function deleteTarget(id) {
-        console.log(id);
-        setTarget(prevTarget => {
-            return prevTarget.filter((targetItem, index) => {
+            return prevNotes.filter((gapData, index) => {
                 return index !== id;
             });
         });
     }
 
     return (
-        <div>
+        <div style={{ minHeight: '100%', "font-family": "Kanit, sans-serif" }}>
             <Header bgColor='#63B995' />
             <div className="topicBackground" style={{ backgroundColor: '#63B995' }}>
                 <div className="container-xl" style={{ paddingBottom: '20px' }}>
@@ -57,65 +36,54 @@ function Dialogue(props) {
                     </div>
                 </div>
             </div>
-
             <div className="IDPBox">
                 <div className="container-xl">
-                    <CCallout color="success" style={{ marginTop: '0px', marginBottom: '10px' }}>
-                        <h3 style={{ color: 'black' }}>My Self Assessment Gap</h3>
+                    <CCallout color="success" style={{ marginBottom: '30px', marginTop: '30px', marginLeft: '2%' }}>
+                        <h3 style={{ color: 'black' }}>Gap</h3>
                     </CCallout>
-                    
-                    {notes.map((noteItem, index) => {
-                        return (
-                            <Input
+
+                    {
+                        gapData.map((gapItem, index) => (
+                            <Output
                                 key={index}
                                 id={index}
                                 no={index + 1}
                                 onDelete={deleteNote}
-                                name={noteItem.name}
-                                placeholder="My Self Assessment Gap"
+                                value={gapItem.gap}
                             />
-                        );
-                    })}
-                
-                    <button style={{ backgroundColor: props.bgColor, border: 'none', boxShadow: 'none', marginLeft: '87%'}} variant="contained" onClick={addNote}>
-                        <img width="40px" height="40px" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEuMSIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHhtbG5zOnN2Z2pzPSJodHRwOi8vc3ZnanMuY29tL3N2Z2pzIiB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiIgeD0iMCIgeT0iMCIgdmlld0JveD0iMCAwIDE1MiAxNTIiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDUxMiA1MTIiIHhtbDpzcGFjZT0icHJlc2VydmUiPjxnPjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgaWQ9IkxheWVyXzIiIGRhdGEtbmFtZT0iTGF5ZXIgMiI+PGcgaWQ9Il8wMS5BZGQiIGRhdGEtbmFtZT0iMDEuQWRkIj48cGF0aCBkPSJtMTE3IDBoLTgyYTM1LjEgMzUuMSAwIDAgMCAtMzUgMzV2ODJhMzUuMSAzNS4xIDAgMCAwIDM1IDM1aDgyYTM1LjEgMzUuMSAwIDAgMCAzNS0zNXYtODJhMzUuMSAzNS4xIDAgMCAwIC0zNS0zNXptLTkuNzkgODIuNTVoLTIzLjA3YTEuMzQgMS4zNCAwIDAgMCAtMS4zNSAxLjM1djIzLjFhNi43OSA2Ljc5IDAgMCAxIC0xMy41OCAwdi0yMy4xYTEuMzQgMS4zNCAwIDAgMCAtMS4zNS0xLjM1aC0yMy4wN2E2Ljc5IDYuNzkgMCAxIDEgMC0xMy41OGgyMy4wN2ExLjM0IDEuMzQgMCAwIDAgMS4zNS0xLjM1di0yMy4wN2E2Ljc5IDYuNzkgMCAwIDEgMTMuNTggMHYyMy4wN2ExLjM0IDEuMzQgMCAwIDAgMS4zNSAxLjM4aDIzLjA3YTYuNzkgNi43OSAwIDAgMSAwIDEzLjU4eiIgZmlsbD0iIzM2NjI4OCIgZGF0YS1vcmlnaW5hbD0iIzAwMDAwMCIgc3R5bGU9IiI+PC9wYXRoPjwvZz48L2c+PC9nPjwvc3ZnPg==" />
-                    </button>
+                        ))
+                    }
 
-                    {/* <Topic name="My Target This Year" marginTop="40px" marginLeft="0%"/> */}
-                    <CCallout color="success" style={{ marginTop: '0px', marginBottom: '10px', marginTop: '30px', clear: 'both' }}>
-                        <h3 style={{ color: 'black' }}>My Target This Year</h3>
+                    <CCallout color="success" style={{ marginBottom: '30px', marginTop: '30px', marginLeft: '2%' }}>
+                        <h3 style={{ color: 'black' }}>Target</h3>
                     </CCallout>
-                    {target.map((targetItem, index) => {
-                        return (
-                            <Input
+                    {
+                        targetData.map((targetItem, index) => (
+                            <Output
                                 key={index}
                                 id={index}
                                 no={index + 1}
-                                onDelete={deleteTarget}
-                                name={targetItem.name}
-                                placeholder="My Target This Year"
+                                onDelete={deleteNote}
+                                value={targetItem.target}
                             />
-                        );
-                    })}
-                    <button style={{ backgroundColor: props.bgColor, border: 'none', boxShadow: 'none', marginLeft: '87%'}} variant="contained" onClick={addTarget}>
-                        <img width="40px" height="40px" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEuMSIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHhtbG5zOnN2Z2pzPSJodHRwOi8vc3ZnanMuY29tL3N2Z2pzIiB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiIgeD0iMCIgeT0iMCIgdmlld0JveD0iMCAwIDE1MiAxNTIiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDUxMiA1MTIiIHhtbDpzcGFjZT0icHJlc2VydmUiPjxnPjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgaWQ9IkxheWVyXzIiIGRhdGEtbmFtZT0iTGF5ZXIgMiI+PGcgaWQ9Il8wMS5BZGQiIGRhdGEtbmFtZT0iMDEuQWRkIj48cGF0aCBkPSJtMTE3IDBoLTgyYTM1LjEgMzUuMSAwIDAgMCAtMzUgMzV2ODJhMzUuMSAzNS4xIDAgMCAwIDM1IDM1aDgyYTM1LjEgMzUuMSAwIDAgMCAzNS0zNXYtODJhMzUuMSAzNS4xIDAgMCAwIC0zNS0zNXptLTkuNzkgODIuNTVoLTIzLjA3YTEuMzQgMS4zNCAwIDAgMCAtMS4zNSAxLjM1djIzLjFhNi43OSA2Ljc5IDAgMCAxIC0xMy41OCAwdi0yMy4xYTEuMzQgMS4zNCAwIDAgMCAtMS4zNS0xLjM1aC0yMy4wN2E2Ljc5IDYuNzkgMCAxIDEgMC0xMy41OGgyMy4wN2ExLjM0IDEuMzQgMCAwIDAgMS4zNS0xLjM1di0yMy4wN2E2Ljc5IDYuNzkgMCAwIDEgMTMuNTggMHYyMy4wN2ExLjM0IDEuMzQgMCAwIDAgMS4zNSAxLjM4aDIzLjA3YTYuNzkgNi43OSAwIDAgMSAwIDEzLjU4eiIgZmlsbD0iIzM2NjI4OCIgZGF0YS1vcmlnaW5hbD0iIzAwMDAwMCIgc3R5bGU9IiI+PC9wYXRoPjwvZz48L2c+PC9nPjwvc3ZnPg==" />
-                    </button>
-
-                    <div>
-                    </div>
-
-                    <center>
-                        <div>
-                            <Button variant="contained" onClick={addTarget} className="addButton">
-                                <SaveIcon className="addIcon" />  &nbsp; Save
-                            </Button>
-                        </div>
-
-                    </center>
+                        ))
+                    }
+                    <CCallout color="success" style={{ marginBottom: '30px', marginTop: '30px', marginLeft: '2%' }}>
+                        <h3 style={{ color: 'black' }}>OJT</h3>
+                    </CCallout>
+                    {
+                        ojtData.map((ojtItem, index) => (
+                            <Output
+                                key={index}
+                                id={index}
+                                no={index + 1}
+                                onDelete={deleteNote}
+                                value={ojtItem.ojt}
+                            />
+                        ))
+                    }
                 </div>
             </div>
-
-
         </div>);
 }
 

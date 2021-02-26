@@ -3,7 +3,6 @@ import { makeStyles, styled } from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import AppBar from '@material-ui/core/AppBar';
-import Divider from '@material-ui/core/Divider';
 import Header from "../Header/Header";
 import ReactPlayer from 'react-player/lazy';
 
@@ -12,7 +11,6 @@ import SectionData from "./OnlineLearningData/SectionData";
 import ChapterData from "./OnlineLearningData/ChapterData";
 
 import Accordion from '@material-ui/core/Accordion';
-import AccordionDetails from '@material-ui/core/AccordionDetails';
 import AccordionSummary from '@material-ui/core/AccordionSummary';
 import Typography from '@material-ui/core/Typography';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';

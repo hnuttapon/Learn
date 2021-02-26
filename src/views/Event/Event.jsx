@@ -4,9 +4,21 @@ import Header from "../Header/Header";
 import EventCard from "./Component/EventCard";
 import "./Event.css";
 
+import { DateRangePicker } from 'react-dates'
+import 'react-dates/initialize'
+import 'react-dates/lib/css/_datepicker.css'
 
-const MyTeam = (props) => {
+import {
+  CFormGroup,
+  CLabel,
+  CCallout,
+} from '@coreui/react'
 
+
+const Event = (props) => {
+
+  const [date, setDate] = React.useState({ startDate: null, endDate: null })
+  const [focused, setFocused] = React.useState()
   return (
     <div style={{ minHeight: '100%', "font-family": "Kanit, sans-serif" }}>
       <Header bgColor='#63B995' />
@@ -22,6 +34,24 @@ const MyTeam = (props) => {
 
       <div className="IDPBox">
         <div className="container">
+          <CFormGroup style={{textAlign:"right"}}>
+            <CLabel><CCallout color="success"  >
+              <h4 style={{ color: 'black' }}>วันที่เรียน</h4>
+            </CCallout></CLabel>
+
+            <DateRangePicker
+              startDate={date.startDate}
+              startDateId="startDate"
+              endDate={date.endDate}
+              endDateId="endDate"
+              onDatesChange={value => setDate(value)}
+              focusedInput={focused}
+              onFocusChange={focusedInput => setFocused(focusedInput)}
+              orientation="horizontal"
+              openDirection="down"
+            />
+
+          </CFormGroup>
           <div className="row" align="center">
             <div className="col-xl-4 col-lg-4 col-md-6" >
               <EventCard />
@@ -57,4 +87,4 @@ const MyTeam = (props) => {
     </div>);
 }
 
-export default MyTeam;
+export default Event;

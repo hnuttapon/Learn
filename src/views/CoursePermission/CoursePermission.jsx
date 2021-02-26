@@ -16,40 +16,14 @@ import Editor from "../AddCourse/Component/TextEditors";
 import FileInput from "./Component/FileInput";
 
 import {
-    CButton,
-    CCard,
     CCardBody,
-    CCardFooter,
-    CCardHeader,
     CCol,
-    CCollapse,
-    CDropdownItem,
-    CDropdownMenu,
-    CDropdownToggle,
-    CFade,
-    CForm,
     CFormGroup,
-    CFormText,
-    CValidFeedback,
-    CInvalidFeedback,
-    CTextarea,
     CInput,
-    CInputFile,
-    CInputCheckbox,
-    CInputRadio,
-    CInputGroup,
-    CInputGroupAppend,
-    CInputGroupPrepend,
-    CDropdown,
-    CInputGroupText,
     CLabel,
     CCallout,
-    CSelect,
-    CRow,
-    CSwitch
 } from '@coreui/react'
 
-import CIcon from '@coreui/icons-react'
 const useStyles = makeStyles((theme) => ({
     root: {
         width: '100%',

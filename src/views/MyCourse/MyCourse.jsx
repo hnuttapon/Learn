@@ -36,7 +36,7 @@ const useStyles = makeStyles((theme) => ({
 const MyCourse = (props) => {
   const classes = useStyles();
   return (
-    <div>
+    <div style={{backgroundImage: 'url("https://www.transparenttextures.com/patterns/cubes.png")'}}>
       <Header bgColor='#63B995'/>
       <div>
         <div className="container">

@@ -1,0 +1,30 @@
+.no{
+    color:white;
+    font-family: 'Kanit', sans-serif;
+    font-weight:300;
+    font-size:28px;
+    margin-top:22px;
+    float:left;
+    display:inline;
+    margin-left:30%;
+    background-color:#329D9C;
+    padding:4px;
+    width:50px;
+    border-radius:40%;
+}
+
+.outputBox {
+    position: relative;
+    width: 100%;
+    margin-top: 20px;
+    background: #fff;
+    padding: 4px;
+    padding-left: 6px;
+    padding-top: 7px;
+    border-radius: 7px;
+    font-weight: 200;
+    font-family: 'Kanit', sans-serif;
+    font-size: 20px;
+    box-shadow: 0 1px 5px rgb(138, 137, 137);
+    display: inline-block;
+}

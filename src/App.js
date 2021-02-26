@@ -20,10 +20,13 @@ const Teacher = React.lazy(() => import('./views/Teacher/Teacher'));
 const AddTeacher = React.lazy(() => import('./views/AddTeacher/AddTeacher'));
 const DialogueUser = React.lazy(() => import('./views/DialogueUser/DialogueUser'));
 const DialogueBoss = React.lazy(() => import('./views/DialogueBoss/DialogueBoss'));
+const DialogueSummary = React.lazy(() => import('./views/DialogueSummary/DialogueSummary'));
 const TeacherInfo = React.lazy(() => import('./views/TeacherInfo/TeacherInfo'));
 const OnlineLearning = React.lazy(() => import('./views/OnlineLearning/OnlineLearning'));
 const Event = React.lazy(() => import('./views/Event/Event'));
 const CoursePermission = React.lazy(() => import('./views/CoursePermission/CoursePermission'));
+const MyHistory = React.lazy(() => import('./views/History/MyHistory/MyHistory'));
+
 
 
 const App = () => {
@@ -42,10 +45,12 @@ const App = () => {
                     <Route path="/AddTeacher" component={AddTeacher} />
                     <Route path="/Dialogue/User" component={DialogueUser} />
                     <Route path="/Dialogue/Boss" component={DialogueBoss} />
+                    <Route path="/Dialogue/Summary" component={DialogueSummary} />
                     <Route path="/TeacherInfo" component={TeacherInfo} />
                     <Route path="/OnlineLearning" component={OnlineLearning} />
                     <Route path="/Event" component={Event} />
                     <Route path="/CoursePermission" component={CoursePermission} />
+                    <Route path="/MyHistory" component={MyHistory} />
                     {/* <Route component={NoPageFound} /> */}
                 </Switch>
             </React.Suspense>
