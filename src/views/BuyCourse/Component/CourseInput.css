@@ -1,0 +1,27 @@
+form.createMember {
+    position: relative;
+    width: 100%;
+    margin-top: 20px;
+    background: #fff;
+    color:black;
+    padding: 5px;
+    padding-top: 6px;
+    border-radius: 7px;
+    box-shadow: 0 1px 5px rgb(138, 137, 137);
+    display: inline-block;
+}
+
+form.createMember input {
+    width: 100%;
+    border: none;
+    padding: 3px;
+    padding-top: 1px;
+    outline: none;
+    font-size: 18px;
+    font-weight: 400;
+    color:'black';
+    text-align:left; 
+    vertical-align: 'middle';
+    font-family: inherit;
+    resize: none;
+}

@@ -115,7 +115,7 @@ const AddTeacher = () => {
             <div>
               <Button variant="contained"  className="addButton">
                 <SaveIcon className="addIcon" />  &nbsp; Save
-                        </Button>
+              </Button>
             </div>
           </center>
 
