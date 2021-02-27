@@ -34,19 +34,20 @@
     box-shadow: inset 400px 0 0 0 #0B4F6C;
     border: 2px solid #0B4F6C;
     color: #fff;
+    border-radius: 30px;
 }
   
 .button_slide {
     color: #fff;
-    border: 2px solid #566246;
-    background-color: #566246;
+    border: 2px solid #1B998B;
+    background-color: #1B998B;
     border-radius: 0px;
     padding: 10px 30px;
     font-family: "Lucida Console", Monaco, monospace;
     font-size: 14px;
     letter-spacing: 1px;
     cursor: pointer;
-    box-shadow: inset 0 0 0 0 #566246;
+    box-shadow: inset 0 0 0 0 #1B998B;
     -webkit-transition: ease-out 0.5s;
     -moz-transition: ease-out 0.5s;
     transition: ease-out 0.5s;
@@ -54,24 +55,51 @@
     margin-top: 15px;
     margin-right: 3%;
     margin-bottom: 10px;
+    border-radius: 30px;
   }
 
-  .titles{
+  .titles {
     color: #183059;
     margin-top: 2%;
     font-family: 'Kanit', sans-serif;
     font-weight: 400;
     margin-left: 5%;
     clear: both;
-  }
-  
-  .topics{
-    color:black;
+}
+
+.topics {
+    color: black;
     margin-top: 1%;
     font-family: 'Kanit', sans-serif;
     font-weight: 100;
     margin-left: 5%;
     display: block;
     clear: both;
-  }
+}
+
+.titleBox {
+    padding: 15px;
+    text-align: center;
+    margin-bottom: 0px;
+    margin-top: 0px;
+    width: 60%;
+    border-bottom-left-radius: 50px;
+    border-bottom-right-radius: 50px;
+    z-index: 1;
+}
+
+.IDPBox {
+    padding: 10px;
+    padding-right: 20px;
+    padding-bottom: 100px;
+    box-shadow: 0 1px 20px black;
+    background-color: white;
+    background-image: url("https://www.transparenttextures.com/patterns/cubes.png");
+}
+
+.topicBackground {
+    background-color: #6DA34D;
+    padding-top: 10px;
+    /* background-image: url("https://www.transparenttextures.com/patterns/black-linen.png"); */
+}
   
