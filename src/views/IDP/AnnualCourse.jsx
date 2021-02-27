@@ -107,7 +107,7 @@ function AnnualCourse(props) {
     };
 
     return (
-        <div style={{ "font-family": "Kanit, sans-serif" }}>
+        <div>
             <Header bgColor='#63B995' />
             <div className="topicBackground" style={{ backgroundColor: '#63B995' }}>
                 <div className="container-xl" style={{ paddingBottom: "20px" }}>
@@ -154,7 +154,7 @@ function AnnualCourse(props) {
             <div className="lightGreen">
                 <div className="container-box IDPBox">       
                     <CCallout color="success" style={{ marginBottom: '0px', marginTop: '0px', marginLeft: '4%' }}>
-                        <h3 style={{ color: 'black',fontWeight:'400'}}>Mandatory</h3>
+                        <h3 style={{ color: 'black',fontWeight:'400',"font-family": "Kanit, sans-serif"}}>Mandatory</h3>
                     </CCallout>                 
 
                     <Slider {...settings} style={{marginBottom:'100px'}}>
@@ -182,7 +182,7 @@ function AnnualCourse(props) {
                     </Slider>
 
                     <CCallout color="success" style={{ marginBottom: '0px', marginTop: '30px', marginLeft: '4%'}}>
-                        <h3 style={{ color: 'black',fontWeight:'400' }}>Annual Learning Plan</h3>
+                        <h3 style={{ color: 'black',fontWeight:'400',"font-family": "Kanit, sans-serif" }}>Annual Learning Plan</h3>
                     </CCallout>                 
 
                     <Slider {...settings} style={{marginBottom:'100px'}}>
@@ -210,7 +210,7 @@ function AnnualCourse(props) {
                     </Slider>
 
                     <CCallout color="success" style={{ marginBottom: '0px', marginTop: '30px', marginLeft: '4%' }}>
-                        <h3 style={{ color: 'black',fontWeight:'400' }}>On Job Training List</h3>
+                        <h3 style={{ color: 'black',fontWeight:'400',"font-family": "Kanit, sans-serif" }}>On Job Training List</h3>
                     </CCallout>
 
                     <center>
@@ -221,11 +221,11 @@ function AnnualCourse(props) {
                    
 
                     <CCallout color="warning" style={{ marginBottom: '0px', marginTop: '80px', marginLeft: '4%' }}>
-                        <h3 style={{ color: 'black' ,fontWeight:'600'}}>My Selected Add-on Year</h3>
+                        <h3 style={{ color: 'black' ,fontWeight:'600',"font-family": "Kanit, sans-serif"}}>My Selected Add-on Year</h3>
                     </CCallout>
 
                     <CCallout color="success" style={{ marginBottom: '0px', marginTop: '30px', marginLeft: '4%'}}>
-                        <h3 style={{ color: 'black',fontWeight:'400' }}>Online</h3>
+                        <h3 style={{ color: 'black',fontWeight:'400' ,"font-family": "Kanit, sans-serif"}}>Online</h3>
                     </CCallout>                 
 
                     <Slider {...settings} style={{marginBottom:'100px'}}>
@@ -262,7 +262,7 @@ function AnnualCourse(props) {
                     </Slider>
 
                     <CCallout color="success" style={{ marginBottom: '0px', marginTop: '30px', marginLeft: '4%'}}>
-                        <h3 style={{ color: 'black',fontWeight:'400' }}>Classroom</h3>
+                        <h3 style={{ color: 'black',fontWeight:'400',"font-family": "Kanit, sans-serif" }}>Classroom</h3>
                     </CCallout>                 
 
                     <Slider {...settings} style={{marginBottom:'100px'}}>
@@ -299,7 +299,7 @@ function AnnualCourse(props) {
                     </Slider>
 
                     <CCallout color="success" style={{ marginBottom: '0px', marginTop: '30px', marginLeft: '4%' }}>
-                        <h3 style={{ color: 'black' ,fontWeight:'400'}}>On Job Training List</h3>
+                        <h3 style={{ color: 'black' ,fontWeight:'400',"font-family": "Kanit, sans-serif"}}>On Job Training List</h3>
                     </CCallout>
 
                     <center>

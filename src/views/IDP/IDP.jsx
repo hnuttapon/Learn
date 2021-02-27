@@ -107,7 +107,7 @@ function IDP(props) {
     };
 
     return (
-        <div style={{ "font-family": "Kanit, sans-serif" }}>
+        <div>
             <Header bgColor='#63B995' />
             <div className="topicBackground" style={{ backgroundColor: '#63B995' }}>
                 <div className="container-xl" style={{ paddingBottom: "20px" }}>
@@ -263,7 +263,7 @@ function IDP(props) {
                         style={{ textAlign: "left", marginTop: "30px" }}
                     >
                         <CCallout color="success" style={{ marginBottom: '0px', marginTop: '30px', marginLeft: '2%' }}>
-                            <h3 style={{ color: 'black' }}>เป้าหมายงานปีนี้</h3>
+                            <h3 style={{ color: 'black',"font-family": "Kanit, sans-serif" }}>เป้าหมายงานปีนี้</h3>
                         </CCallout>
                     </div>
 
@@ -278,7 +278,7 @@ function IDP(props) {
                         style={{ textAlign: "left", marginTop: "30px" }}
                     >
                         <CCallout color="success" style={{ marginBottom: '0px', marginTop: '30px', marginLeft: '2%' }}>
-                            <h3 style={{ color: 'black' }}>Course Suggestion</h3>
+                            <h3 style={{ color: 'black',"font-family": "Kanit, sans-serif" }}>Course Suggestion</h3>
                         </CCallout>
                     </div>
 
@@ -320,7 +320,7 @@ function IDP(props) {
                         style={{ textAlign: "left", marginTop: "30px" }}
                     >
                         <CCallout color="success" style={{ marginBottom: '0px', marginTop: '30px', marginLeft: '2%' }}>
-                            <h3 style={{ color: 'black' }}>Mandatory</h3>
+                            <h3 style={{ color: 'black',"font-family": "Kanit, sans-serif" }}>Mandatory</h3>
                         </CCallout>
                     </div>
 
@@ -363,7 +363,7 @@ function IDP(props) {
                         style={{ textAlign: "left", marginTop: "30px" }}
                     >
                         <CCallout color="success" style={{ marginBottom: '0px', marginTop: '30px', marginLeft: '2%' }}>
-                            <h3 style={{ color: 'black' }}>From Gaol</h3>
+                            <h3 style={{ color: 'black',"font-family": "Kanit, sans-serif" }}>From Gaol</h3>
                         </CCallout>
                     </div>
 
@@ -406,7 +406,7 @@ function IDP(props) {
                         style={{ textAlign: "left", marginTop: "30px" }}
                     >
                         <CCallout color="success" style={{ marginBottom: '0px', marginTop: '30px', marginLeft: '2%' }}>
-                            <h3 style={{ color: 'black' }}>On Job Training List</h3>
+                            <h3 style={{ color: 'black',"font-family": "Kanit, sans-serif" }}>On Job Training List</h3>
                         </CCallout>
                     </div>
 

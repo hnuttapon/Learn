@@ -12,6 +12,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
 import { CCallout } from '@coreui/react';
 import Dropdown from "./Component/Dropdown";
+import Form from "./Component/Form";
 
 import DateFnsUtils from "@date-io/date-fns"; // choose your lib
 import {
@@ -70,13 +71,22 @@ function MyHistory(props) {
             onClick={toggleDrawer(anchor, true)}
             onKeyDown={toggleDrawer(anchor, true)}
         >
-           
-<div style={{marginLeft:'10%'}}>
+
+            <div style={{ marginLeft: '10%' }}>
+                <CCallout color="success" style={{ marginBottom: '0px', marginTop: '30px', marginLeft: '2%' }}>
+                    <h4 style={{ color: 'black',"font-family": "Kanit, sans-serif" }}>ประเภท</h4>
+                </CCallout>
                 <Dropdown label="ประเภท" firstchoice="Online" secondchoice="Classroom" />
+                <CCallout color="success" style={{ marginBottom: '0px', marginTop: '30px', marginLeft: '2%' }}>
+                    <h4 style={{ color: 'black',"font-family": "Kanit, sans-serif" }}>รูปแบบ</h4>
+                </CCallout>
                 <Dropdown label="รูปแบบ" firstchoice="Mandatory" secondchoice="OJT" />
+                <CCallout color="success" style={{ marginBottom: '0px', marginTop: '30px', marginLeft: '2%' }}>
+                    <h4 style={{ color: 'black',"font-family": "Kanit, sans-serif" }}>เดือนที่เรียน</h4>
+                </CCallout>
                 <MuiPickersUtilsProvider utils={DateFnsUtils}>
                     <DatePicker
-                        style={{ marginTop: '20px'}}
+                        style={{ marginTop: '20px' }}
                         variant="inline"
                         openTo="year"
                         views={["year", "month"]}
@@ -85,9 +95,17 @@ function MyHistory(props) {
                         onChange={handleDateChange}
                     />
                 </MuiPickersUtilsProvider>
-                </div>
+                <CCallout color="success" style={{ marginBottom: '0px', marginTop: '30px', marginLeft: '2%' }}>
+                    <h4 style={{ color: 'black',"font-family": "Kanit, sans-serif" }}>สถานที่เรียน</h4>
+                </CCallout>
+                <Form
+                    placeholder="สถานที่เรียน"
+                />
+                <CCallout color="success" style={{ marginBottom: '0px', marginTop: '30px', marginLeft: '2%' }}>
+                    <h4 style={{ color: 'black',"font-family": "Kanit, sans-serif" }}>หมวดหมู่วิชา</h4>
+                </CCallout>
 
-
+            </div>
         </div>
     );
 
@@ -126,7 +144,7 @@ function MyHistory(props) {
 
 
                     <CCallout color="success" style={{ marginBottom: '30px', marginTop: '30px', marginLeft: '2%' }}>
-                        <h3 style={{ color: 'black' }}>Mandatory</h3>
+                        <h3 style={{ color: 'black',"font-family": "Kanit, sans-serif" }}>Mandatory</h3>
                     </CCallout>
                     <div className="row">
                         {
@@ -151,7 +169,7 @@ function MyHistory(props) {
                     </div>
 
                     <CCallout color="success" style={{ marginBottom: '30px', marginTop: '30px', marginLeft: '2%' }}>
-                        <h3 style={{ color: 'black' }}>Other</h3>
+                        <h3 style={{ color: 'black',"font-family": "Kanit, sans-serif" }}>Other</h3>
                     </CCallout>
 
                     <div className="row">
@@ -179,7 +197,7 @@ function MyHistory(props) {
                     </div>
 
                     <CCallout color="success" style={{ marginBottom: '30px', marginTop: '30px', marginLeft: '2%' }}>
-                        <h3 style={{ color: 'black' }}>On Job Training List</h3>
+                        <h3 style={{ color: 'black',"font-family": "Kanit, sans-serif" }}>On Job Training List</h3>
                     </CCallout>
 
                     <center>

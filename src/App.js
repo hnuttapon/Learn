@@ -31,7 +31,7 @@ const BuyCourseClass = React.lazy(() => import('./views/BuyCourse/BuyCourseClass
 const Receipt = React.lazy(() => import('./views/BuyCourse/Receipt'));
 const IDP = React.lazy(() => import('./views/IDP/IDP'));
 const AnnualCourse = React.lazy(() => import('./views/IDP/AnnualCourse'));
-
+const CourseHistory = React.lazy(() => import('./views/History/CourseHistory/CourseHistory'));
 
 const App = () => {
     return (
@@ -55,6 +55,7 @@ const App = () => {
                     <Route path="/Event" component={Event} />
                     <Route path="/CoursePermission" component={CoursePermission} />
                     <Route path="/MyHistory" component={MyHistory} />
+                    <Route path="/CourseHistory" component={CourseHistory} />
                     <Route path="/BuyCourse/Online" component={BuyCourseOnline} />
                     <Route path="/BuyCourse/Class" component={BuyCourseClass} />
                     <Route path="/BuyCourse/Receipt" component={Receipt} />
