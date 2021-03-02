@@ -11,7 +11,13 @@ import "./MyHistory.css";
 import { makeStyles } from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
 import { CCallout } from '@coreui/react';
+
+///Dropdown
 import Dropdown from "./Component/Dropdown";
+import courseType from "./Data/CourseTypeData";
+import courseLearning from "./Data/CourseLearningData"; 
+import LearningLocation from "./Data/LearningLocation";
+
 import Form from "./Component/Form";
 
 import DateFnsUtils from "@date-io/date-fns"; // choose your lib
@@ -76,11 +82,15 @@ function MyHistory(props) {
                 <CCallout color="success" style={{ marginBottom: '0px', marginTop: '30px', marginLeft: '2%' }}>
                     <h4 style={{ color: 'black',"font-family": "Kanit, sans-serif" }}>ประเภท</h4>
                 </CCallout>
-                <Dropdown label="ประเภท" firstchoice="Online" secondchoice="Classroom" />
+                {/* <Dropdown label="ประเภท" firstchoice="Online" secondchoice="Classroom" /> */}
+                <Dropdown label="ประเภท" data={courseType} />
+                
                 <CCallout color="success" style={{ marginBottom: '0px', marginTop: '30px', marginLeft: '2%' }}>
                     <h4 style={{ color: 'black',"font-family": "Kanit, sans-serif" }}>รูปแบบ</h4>
                 </CCallout>
-                <Dropdown label="รูปแบบ" firstchoice="Mandatory" secondchoice="OJT" />
+                {/* <Dropdown label="รูปแบบ" firstchoice="Mandatory" secondchoice="OJT" /> */}
+                <Dropdown label="รูปแบบ" data={courseLearning} />
+                
                 <CCallout color="success" style={{ marginBottom: '0px', marginTop: '30px', marginLeft: '2%' }}>
                     <h4 style={{ color: 'black',"font-family": "Kanit, sans-serif" }}>เดือนที่เรียน</h4>
                 </CCallout>
@@ -98,9 +108,8 @@ function MyHistory(props) {
                 <CCallout color="success" style={{ marginBottom: '0px', marginTop: '30px', marginLeft: '2%' }}>
                     <h4 style={{ color: 'black',"font-family": "Kanit, sans-serif" }}>สถานที่เรียน</h4>
                 </CCallout>
-                <Form
-                    placeholder="สถานที่เรียน"
-                />
+                <Dropdown label="สถานที่เรียน" data={LearningLocation} />
+
                 <CCallout color="success" style={{ marginBottom: '0px', marginTop: '30px', marginLeft: '2%' }}>
                     <h4 style={{ color: 'black',"font-family": "Kanit, sans-serif" }}>หมวดหมู่วิชา</h4>
                 </CCallout>

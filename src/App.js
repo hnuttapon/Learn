@@ -26,6 +26,7 @@ const OnlineLearning = React.lazy(() => import('./views/OnlineLearning/OnlineLea
 const Event = React.lazy(() => import('./views/Event/Event'));
 const CoursePermission = React.lazy(() => import('./views/CoursePermission/CoursePermission'));
 const MyHistory = React.lazy(() => import('./views/History/MyHistory/MyHistory'));
+const Export = React.lazy(() => import('./views/History/Export/Export'));
 const BuyCourseOnline = React.lazy(() => import('./views/BuyCourse/BuyCourseOnline'));
 const BuyCourseClass = React.lazy(() => import('./views/BuyCourse/BuyCourseClass'));
 const Receipt = React.lazy(() => import('./views/BuyCourse/Receipt'));
@@ -55,6 +56,7 @@ const App = () => {
                     <Route path="/Event" component={Event} />
                     <Route path="/CoursePermission" component={CoursePermission} />
                     <Route path="/MyHistory" component={MyHistory} />
+                    <Route path="/Export" component={Export} />
                     <Route path="/CourseHistory" component={CourseHistory} />
                     <Route path="/BuyCourse/Online" component={BuyCourseOnline} />
                     <Route path="/BuyCourse/Class" component={BuyCourseClass} />

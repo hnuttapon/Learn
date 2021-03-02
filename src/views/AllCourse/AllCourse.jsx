@@ -18,7 +18,7 @@ const Course = () => {
       <Header bgColor='#63B995' />
       <div className="topicBackground" style={{ backgroundColor: '#63B995' }}>
         <div className="container-xl" style={{ paddingBottom: '20px' }}>
-          <div className="titleBox" style={{ marginLeft: 'auto', marginRight: 'auto', marginBottom: '0px', width: '50%' }}>
+          <div className="titleBox" style={{ marginLeft: 'auto', marginRight: 'auto', marginBottom: '0px', width: '40%' }}>
             <center><Form placeholder="Search" /></center>
           </div>
         </div>
