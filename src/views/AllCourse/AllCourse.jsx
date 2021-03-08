@@ -1,6 +1,4 @@
-import React from "react";
-import Topic from "../Course/CourseCard/Component/Topic";
-import Title from "../Course/CourseCard/Component/Title";
+import React,{useState,useEffect} from "react";
 import CardOnline from "../Course/CourseCard/CardOnline";
 import CardClass from "../Course/CourseCard/CardClass";
 import './AllCourse.css';
@@ -13,6 +11,22 @@ import Form from "./Component/Form";
 import { CCallout } from '@coreui/react';
 
 const Course = () => {
+
+  const [course,setCourse] = useState([]);
+  const [err,setError] = useState(false);
+
+  useEffect(()=>{
+    fetchData(); 
+  });
+
+  async function fetchData(){
+      const res = await fetch('https://localhost:44309/api/department');
+      res
+      .json()
+      .then(res => setCourse(res))
+      .catch(err => setError(err))
+  }
+
   return (
     <div>
       <Header bgColor='#63B995' />

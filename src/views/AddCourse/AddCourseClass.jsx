@@ -1,5 +1,4 @@
-import React from "react";
-import Topic from "../Course/CourseCard/Component/Topic";
+import React,{useState} from "react";
 import Title from "../Course/CourseCard/Component/Title";
 import Dropdown from "./Component/dropdown";
 import Editor from "./Component/TextEditors";
@@ -12,15 +11,16 @@ import {
 } from '@coreui/react'
 import TimePicker from "./Component/timepicker";
 
-import Checkbox from '@material-ui/core/Checkbox';
-import FormGroup from '@material-ui/core/FormGroup';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import FormControl from '@material-ui/core/FormControl';
-import FormLabel from '@material-ui/core/FormLabel';
+import DateFnsUtils from "@date-io/date-fns"; // choose your lib
+import {
+    DatePicker,
+    MuiPickersUtilsProvider
+} from "@material-ui/pickers";
 
 
 
 const AddCourseClass = () => {
+  const [selectedDate, handleDateChange] = useState(new Date());
   return (
     <div style={{ "font-family": "Kanit, sans-serif" }}>
       <Header bgColor='#63B995' />
@@ -71,7 +71,7 @@ const AddCourseClass = () => {
               <Dropdown label="ภาษา" firstchoice="ไทย" secondchoice="อังกฤษ" />
             </div>
             <div className="col-xl-2" align="center">
-              <CForm action="" method="post" style={{ width: '80%', marginTop: '20px' }}>
+              <CForm action="" method="post" style={{ width: '80%', marginTop: '25px' }}>
                 <CFormGroup>
                   <CInputGroup>
                     <CInputGroupPrepend>
@@ -82,67 +82,32 @@ const AddCourseClass = () => {
                 </CFormGroup>
               </CForm>
             </div>
-            <div className="col-xl-3" style={{marginTop:'20px'}} align="center">
+            <div className="col-xl-2" align="center">
+              <MuiPickersUtilsProvider utils={DateFnsUtils}>
+                    <DatePicker
+                        style={{ marginTop: '10px' }}
+                        variant="inline"
+                        openTo="year"
+                        views={["year", "month","date"]}
+                        label="Year and Month"
+                        value={selectedDate}
+                        onChange={handleDateChange}
+                    />
+                </MuiPickersUtilsProvider>
+            </div>
+            <div className="col-xl-2" style={{marginTop:'5px',marginLeft:'10px'}} align="left">
               <h5 style={{display:'inline'}}>เวลาเริ่ม &nbsp;</h5>
               <div style={{ display:'inline'}}>
                 <TimePicker />
               </div>
             </div>
-            <div className="col-xl-3" style={{marginTop:'20px'}} align="left">
+            <div className="col-xl-2" style={{marginTop:'5px'}} align="left">
               <h5 style={{display:'inline'}}>เวลาเลิก &nbsp;</h5>
               <div style={{ display:'inline'}}>
                 <TimePicker />
               </div>
             </div>
-            <div className="col-xl-12" style={{marginTop:'20px',marginLeft:'2%'}} >
-              <h5 style={{display:'inline',top:'10px',position:'relative'}}>วันที่เรียน &nbsp; &nbsp;</h5>
-              <div style={{ display:'inline'}}>
-              <FormControl component="fieldset">
-                    <FormGroup aria-label="position" row>
-                        <FormControlLabel
-                        value="Monday"
-                        control={<Checkbox color="primary" />}
-                        label="Monday"
-                        />
-                        <FormControlLabel
-                        value="Tuesday"
-                        control={<Checkbox color="primary" />}
-                        label="Tuesday"
-                        />
-                        <FormControlLabel
-                        value="Wednesday"
-                        control={<Checkbox color="primary" />}
-                        label="Wednesday"
-                        />
-                        <FormControlLabel
-                        value="Thursday"
-                        control={<Checkbox color="primary" />}
-                        label="Thursday"
-                        />
-                        <FormControlLabel
-                        value="Friday"
-                        control={<Checkbox color="primary" />}
-                        label="Friday"
-                        />
-                        <FormControlLabel
-                        value="Saturday"
-                        control={<Checkbox color="primary" />}
-                        label="Saturday"
-                        />
-                        <FormControlLabel
-                        value="Sunday"
-                        control={<Checkbox color="primary" />}
-                        label="Sunday"
-                        />
-                    </FormGroup>
-                </FormControl>
-              </div>
-            </div>
-
           </div>
-
-
-         
 
           <CCallout color="success" style={{ marginTop: '0px', marginBottom: '10px', marginTop: '30px', marginLeft: '3%' }}>
             <h4 style={{ color: 'black' }}>หมายเหตุ</h4>

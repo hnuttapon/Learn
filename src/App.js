@@ -34,6 +34,10 @@ const IDP = React.lazy(() => import('./views/IDP/IDP'));
 const AnnualCourse = React.lazy(() => import('./views/IDP/AnnualCourse'));
 const CourseHistory = React.lazy(() => import('./views/History/CourseHistory/CourseHistory'));
 
+///Authentication
+const Register = React.lazy(() => import('./views/Authentication/Register'));
+const LogIn = React.lazy(() => import('./views/Authentication/LogIn'));
+
 const App = () => {
     return (
         <HashRouter>
@@ -63,6 +67,11 @@ const App = () => {
                     <Route path="/BuyCourse/Receipt" component={Receipt} />
                     <Route path="/IDP" component={IDP} />
                     <Route path="/AnnualCourse" component={AnnualCourse} />
+
+                    {/* Authentication */}
+                    <Route path="/Register" component={Register} />
+                    <Route path="/LogIn" component={LogIn} />
+                    
                     {/* <Route component={NoPageFound} /> */}
                 </Switch>
             </React.Suspense>

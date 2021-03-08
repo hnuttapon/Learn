@@ -18,13 +18,9 @@ import courseType from "./Data/CourseTypeData";
 import courseLearning from "./Data/CourseLearningData"; 
 import LearningLocation from "./Data/LearningLocation";
 
-import Form from "./Component/Form";
-
 import DateFnsUtils from "@date-io/date-fns"; // choose your lib
 import {
     DatePicker,
-    TimePicker,
-    DateTimePicker,
     MuiPickersUtilsProvider
 } from "@material-ui/pickers";
 
