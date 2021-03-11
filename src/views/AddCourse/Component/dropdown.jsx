@@ -16,13 +16,14 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function ControlledOpenSelect(prop) {
+function ControlledOpenSelect(props) {
   const classes = useStyles();
   const [ans, setAns] = React.useState('');
   const [open, setOpen] = React.useState(false);
 
   const handleChange = (event) => {
     setAns(event.target.value);
+    props.childToParent(event.target.value);
   };
 
   const handleClose = () => {
@@ -33,10 +34,12 @@ function ControlledOpenSelect(prop) {
     setOpen(true);
   };
 
+
+
   return (
     <div className="left-margin" style={{display:"inline-block"}}>
       <FormControl className={classes.formControl}>
-        <InputLabel id="demo-controlled-open-select-label">{prop.label}</InputLabel>
+        <InputLabel id="demo-controlled-open-select-label">{props.label}</InputLabel>
         <Select
           labelId="demo-controlled-open-select-label"
           id="demo-controlled-open-select"
@@ -49,8 +52,8 @@ function ControlledOpenSelect(prop) {
           <MenuItem value="">
             <em>None</em>
           </MenuItem>
-          <MenuItem value={prop.firstchoice}>{prop.firstchoice}</MenuItem>
-          <MenuItem value={prop.secondchoice}>{prop.secondchoice}</MenuItem>
+          <MenuItem value={props.firstchoice}>{props.firstchoice}</MenuItem>
+          <MenuItem value={props.secondchoice}>{props.secondchoice}</MenuItem>
         </Select>
       </FormControl>
     </div>

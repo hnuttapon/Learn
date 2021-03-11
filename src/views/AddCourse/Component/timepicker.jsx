@@ -1,13 +1,44 @@
-import { TimePicker } from 'antd';
-import moment from 'moment';
-import 'antd/dist/antd.css';
+import React,{useState} from 'react';
+import { makeStyles } from '@material-ui/core/styles';
+import TextField from '@material-ui/core/TextField';
 
-const format = 'HH:mm';
+const useStyles = makeStyles((theme) => ({
+  container: {
+    display: 'flex',
+    flexWrap: 'wrap',
+  },
+  textField: {
+    marginLeft: theme.spacing(1),
+    marginRight: theme.spacing(1),
+    width: 200,
+  },
+}));
 
-const time = () => {
-  return(
-    <TimePicker defaultValue={moment('00:00', format)} format={format} />
+export default function TimePickers() {
+  const classes = useStyles();
+  const [time,setTime] = useState("");
+  const [ans, setAns] = React.useState('');
+
+  const handleChange = (event) => {
+    setAns(event.target.value);
+    // props.childToParent(event.target.value);
+  };
+
+
+  return (
+    <form className={classes.container} noValidate>
+      <TextField
+        id="time"
+        type="time"
+        defaultValue="07:30"
+        className={classes.textField}
+        InputLabelProps={{
+          shrink: true,
+        }}
+        value={ans}
+        onChange={handleChange}
+      />
+      <p>{ans}</p>
+    </form>
   );
-} 
-
-export default time;
+}

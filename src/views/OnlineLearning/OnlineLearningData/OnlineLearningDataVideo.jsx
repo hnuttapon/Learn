@@ -5,7 +5,7 @@ const MyTeamData = [
         ChapterNo: 1,
         TopicNo: 1,
         Topic: "What is HTML?",
-        Video: "https://youtu.be/vH3i3pfPbBs",
+        Video: require('./Video/test1.mp4'),
     },
     {
         id:2,

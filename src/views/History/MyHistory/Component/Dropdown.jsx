@@ -50,7 +50,7 @@ function ControlledOpenSelect(prop) {
                     <MenuItem value="">
                         <em>None</em>
                     </MenuItem>
-                    {
+                    {   
                         data.map(dataItem => (
                             <MenuItem value={dataItem.name}>{dataItem.name}</MenuItem>
                         ))

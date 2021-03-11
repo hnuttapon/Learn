@@ -6,6 +6,9 @@ import AppBar from '@material-ui/core/AppBar';
 import Header from "../Header/Header";
 import ReactPlayer from 'react-player/lazy';
 
+import vi from './OnlineLearningData/Video/test2.mp4';
+
+
 import data from "./OnlineLearningData/OnlineLearningDataVideo";
 import SectionData from "./OnlineLearningData/SectionData";
 import ChapterData from "./OnlineLearningData/ChapterData";
@@ -14,6 +17,7 @@ import Accordion from '@material-ui/core/Accordion';
 import AccordionSummary from '@material-ui/core/AccordionSummary';
 import Typography from '@material-ui/core/Typography';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+
 
 import "./OnlineLearning.css";
 
@@ -85,6 +89,8 @@ export default function PermanentDrawerRight() {
         })
     };
 
+    var keep;
+
 
 
     return (
@@ -99,11 +105,13 @@ export default function PermanentDrawerRight() {
                     {data.filter(id => id.ChapterNo === Video.currentChapter && id.SectionNo === Video.currentSection && id.TopicNo === Video.currentTopic).map((dataItem) => {
                         return (
                             <div style={{height:'100%'}}>
-                            <ReactPlayer style={{paddingBottom:'0px'}}
-                                url={dataItem.Video}
+                  
+                            <ReactPlayer style={{paddingBottom:'0px',backgroundColor:'black'}}
+                                url={vi}
                                 controls={true}
                                 width="100%"
-                                height="94%"                    
+                                height="94%"
+                                onError={()=> console.log('onError Callback')}                    
                             />
                             <center>
                             <Typography style={{fontWeight:'200',color:'white',paddingTop:'8px'}}>{dataItem.Topic}</Typography>  

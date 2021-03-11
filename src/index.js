@@ -5,10 +5,10 @@ import './polyfill'
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux'
-import App from './App';
+import App from './App'; 
 import * as serviceWorker from './serviceWorker';
 
-import store from './store'
+import store from './app/store';
 
 import { icons } from './assets/icons'
 import "@coreui/coreui-pro/scss/coreui.scss";

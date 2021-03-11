@@ -7,7 +7,7 @@ import './AddTeacher.css';
 import Dropzone from "./Component/dropzone"
 import Header from "../Header/Header";
 import {
-  CCallout, CInputGroup, CInputGroupAppend,
+  CCallout, CInputGroup,
   CInputGroupPrepend, CInputGroupText, CInput, CFormGroup, CButton, CForm
 } from '@coreui/react'
 

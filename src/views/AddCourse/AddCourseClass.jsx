@@ -21,6 +21,22 @@ import {
 
 const AddCourseClass = () => {
   const [selectedDate, handleDateChange] = useState(new Date());
+
+  const [accessControl, setAccessControl] = useState("");
+  const [courseName, setCourseName] = useState("");
+  const [courseDescription, setCourseDescription] = useState("");
+  const [courseStructure, setCourseStructure] = useState("");
+  const [student, setStudent] = useState("");
+  const [language, setLanguage] = useState("");
+  const [season, setSeason] = useState("");
+  const [coursePic, setCoursePic] = useState([]);
+  const [startTime, setStarttime] = useState();
+
+
+  // const childToParent = (value) => {
+  //   setAccessControl(value);
+  // }
+
   return (
     <div style={{ "font-family": "Kanit, sans-serif" }}>
       <Header bgColor='#63B995' />
@@ -40,47 +56,50 @@ const AddCourseClass = () => {
             <h4 style={{ color: 'black' }}>ประเภทการเข้าถึง</h4>
           </CCallout>
           <div style={{ marginLeft: '3%' }}>
-            <Dropdown label="ระดับการเข้าถึง" firstchoice="public" secondchoice="private" />
+            <Dropdown label="ระดับการเข้าถึง" firstchoice="public" secondchoice="private" childToParent={setAccessControl}/>
           </div>
+          <p>{accessControl}</p>
 
           <CCallout color="success" style={{ marginTop: '0px', marginBottom: '10px', marginTop: '30px', marginLeft: '3%' }}>
             <h4 style={{ color: 'black' }}>ชื่อหลักสูตร</h4>
           </CCallout>
-          <Editor placeholder="ชื่อหลักสูตร" />
+          <Editor placeholder="ชื่อหลักสูตร" childToParent={setCourseName}/>
+          <p>{courseName}</p>        
 
           <CCallout color="success" style={{ marginTop: '0px', marginBottom: '10px', marginTop: '30px', marginLeft: '3%' }}>
             <h4 style={{ color: 'black' }}>รายละเอียดหลักสูตร</h4>
           </CCallout>
-          <Editor placeholder="รายละเอียดหลักสูตร" />
+          <Editor placeholder="รายละเอียดหลักสูตร" childToParent={setCourseDescription}/>
+          <p>{courseDescription}</p> 
 
           <CCallout color="success" style={{ marginTop: '0px', marginBottom: '10px', marginTop: '30px', marginLeft: '3%' }}>
             <h4 style={{ color: 'black' }}>เค้าโครงหลักสูตร</h4>
           </CCallout>
-          <Editor placeholder="เค้าโครงหลักสูตร" />
+          <Editor placeholder="เค้าโครงหลักสูตร" childToParent={setCourseStructure}/>
+          <p>{courseStructure}</p>
+
 
           <CCallout color="success" style={{ marginTop: '0px', marginBottom: '10px', marginTop: '30px', marginLeft: '3%' }}>
             <h4 style={{ color: 'black' }}>หลักสูตรนี้เหมาะสมกับ</h4>
           </CCallout>
-          <Editor placeholder="หลักสูตรนี้เหมาะสมกับ" />
+          <Editor placeholder="หลักสูตรนี้เหมาะสมกับ" childToParent={setStudent}/>
+          <p>{student}</p>
 
           <CCallout color="success" style={{ marginTop: '0px', marginBottom: '10px', marginTop: '30px', marginLeft: '3%' }}>
             <h4 style={{ color: 'black' }}>ข้อมูลเพิ่มเติมหลักสูตร</h4>
           </CCallout>
           <div className="row" style={{ marginLeft: '3%' }}>
             <div className="col-xl-2" align="center">
-              <Dropdown label="ภาษา" firstchoice="ไทย" secondchoice="อังกฤษ" />
+              <Dropdown label="ภาษา" firstchoice="ไทย" secondchoice="อังกฤษ" childToParent={setLanguage}/>
+              <p>{language}</p>
             </div>
             <div className="col-xl-2" align="center">
-              <CForm action="" method="post" style={{ width: '80%', marginTop: '25px' }}>
-                <CFormGroup>
-                  <CInputGroup>
+                  <CInputGroup style={{ width: '80%', marginTop: '25px' }}>
                     <CInputGroupPrepend>
                       <CInputGroupText>รุ่นที่</CInputGroupText>
                     </CInputGroupPrepend>
                     <CInput type="email" id="username3" name="username3" autoComplete="name" />
                   </CInputGroup>
-                </CFormGroup>
-              </CForm>
             </div>
             <div className="col-xl-2" align="center">
               <MuiPickersUtilsProvider utils={DateFnsUtils}>
@@ -94,6 +113,8 @@ const AddCourseClass = () => {
                         onChange={handleDateChange}
                     />
                 </MuiPickersUtilsProvider>
+                {console.log(selectedDate)}
+                <p>{selectedDate.toString()}</p>
             </div>
             <div className="col-xl-2" style={{marginTop:'5px',marginLeft:'10px'}} align="left">
               <h5 style={{display:'inline'}}>เวลาเริ่ม &nbsp;</h5>
@@ -114,10 +135,12 @@ const AddCourseClass = () => {
           </CCallout>
           <Editor placeholder="หมายเหตุ" />
 
+          {/* ภาพประกอบหลักสูตร */}
           <CCallout color="success" style={{ marginTop: '0px', marginBottom: '10px', marginTop: '30px', marginLeft: '3%' }}>
             <h4 style={{ color: 'black' }}>ภาพประกอบหลักสูตร</h4>
           </CCallout>
-          <Dropzone width="700px" height="400px" />
+          <Dropzone width="700px" height="400px" childToParent={setCoursePic}/>
+          {console.log(coursePic)}
 
           <CCallout color="success" style={{ marginTop: '0px', marginBottom: '10px', marginTop: '30px', marginLeft: '3%' }}>
             <h4 style={{ color: 'black' }}>ราคา</h4>
@@ -132,19 +155,16 @@ const AddCourseClass = () => {
             </CInputGroupAppend>
           </CInputGroup>
 
-          <CCallout color="success" style={{ marginTop: '0px', marginBottom: '10px', marginTop: '30px', marginLeft: '3%' }}>
+          <CCallout color="success" style={{marginBottom: '10px', marginTop: '30px', marginLeft: '3%' }}>
             <h4 style={{ color: 'black' }}>ผู้สอน</h4>
           </CCallout>
-          <CForm action="" method="post" style={{ width: '50%', marginLeft: '3%', marginTop: '20px' }}>
-            <CFormGroup>
-              <CInputGroup>
-                <CInputGroupPrepend>
-                  <CInputGroupText>ชื่อ</CInputGroupText>
-                </CInputGroupPrepend>
-                <CInput type="email" id="username3" name="username3" autoComplete="name" />
-              </CInputGroup>
-            </CFormGroup>
-          </CForm>
+          <CInputGroup style={{ width: '50%', marginLeft: '3%', marginTop: '20px' }}>
+            <CInputGroupPrepend>
+              <CInputGroupText>ชื่อ</CInputGroupText>
+            </CInputGroupPrepend>
+            <CInput type="email" id="username3" name="username3" autoComplete="name" />
+          </CInputGroup>
+
 
           <CCallout color="success" style={{ marginTop: '0px', marginBottom: '10px', marginTop: '30px', marginLeft: '3%' }}>
             <h4 style={{ color: 'black' }}>รูปผู้สอน</h4>

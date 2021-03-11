@@ -70,7 +70,7 @@ const App = () => {
 
                     {/* Authentication */}
                     <Route path="/Register" component={Register} />
-                    <Route path="/LogIn" component={LogIn} />
+                    <Route path="/" component={LogIn} />
                     
                     {/* <Route component={NoPageFound} /> */}
                 </Switch>

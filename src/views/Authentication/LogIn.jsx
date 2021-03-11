@@ -2,28 +2,14 @@ import React,{useState} from 'react';
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
-import TextField from '@material-ui/core/TextField';
 import Link from '@material-ui/core/Link';
 import Grid from '@material-ui/core/Grid';
-import Box from '@material-ui/core/Box';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import { CCallout } from '@coreui/react';
-
-function Copyright() {
-  return (
-    <Typography variant="body2" color="textSecondary" align="center">
-      {'Copyright © '}
-      <Link color="inherit" href="https://material-ui.com/">
-        Your Website
-      </Link>{' '}
-      {new Date().getFullYear()}
-      {'.'}
-    </Typography>
-  );
-}
+import { useDispatch } from 'react-redux';
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -34,7 +20,7 @@ const useStyles = makeStyles((theme) => ({
   },
   avatar: {
     margin: theme.spacing(1),
-    backgroundColor: '#2E86AB',
+    backgroundColor: 'orange',
   },
   form: {
     width: '100%', // Fix IE 11 issue.
@@ -43,17 +29,25 @@ const useStyles = makeStyles((theme) => ({
   submit: {
     margin: theme.spacing(3, 0, 2),
   },
+  Background: {
+    backgroundImage:'url(https://files.123freevectors.com/wp-content/original/119450-light-green-abstract-background-design.jpg)',
+    height:'100vh',
+    paddingTop:'4%',
+    backgroundPosition: 'center',
+    backgroundRepeat: 'no-repeat',
+    backgroundSize: 'cover',
+  }
 }));
 
 export default function SignUp() {
   const classes = useStyles();
+  const [users,setUser] = useState([]);
+
+  const dispatch = useDispatch
 
   const [note, setNote] = useState({
-    FirstName: "",
-    LastName: "",
     Email: "",
     Password: "",
-    Role: "User"
   });
 
   function handleChange(event) {
@@ -70,46 +64,47 @@ export default function SignUp() {
   const handleSubmit = (event) => {
     event.preventDefault();
 
-
-    console.log(note.FirstName);
-    console.log(note.LastName);
     console.log(note.Email);
     console.log(note.Password);
 
-    fetch('https://localhost:44347/api/UserData', {
+    fetch('https://localhost:44347/api/LogIn', {
         method: 'POST',
         headers: {
             'Accept': 'application/json',
             'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-            DepartmentId: null,
-            FirstName: note.FirstName,
-            LastName: note.LastName,
             Email: note.Email,
             Password: note.Password,
-            Role: note.Role,
         })
     })
         .then(res => res.json())
         .then((result) => {
-            alert(result);
+            alert(result[0]);
+            setUser(result[0]);
             // this.setState({snackbaropen:true, snackbarmsg:result})
+
+            console.log(users.FirstName);
+            // dispatch(
+            //   login({
+                
+            //   })
+            // )
         },
         (error) => {
             // this.setState({snackbaropen:true, snackbarmsg:'failed'})
-                alert('Failed');
+                alert(error);
         }
         )
 }
 
   return (
-    <div style={{backgroundColor:'#63B995',height:'100vh',paddingTop:'4%'}}>
-        <Container component="main" maxWidth="xs" style={{backgroundColor:'white',padding:'20px',borderRadius:'30px',boxShadow: '0 2px 5px #307351'}}>
+    <div className={classes.Background}>
+        <Container component="main" maxWidth="xs" style={{backgroundColor:'white',padding:'20px',borderRadius:'30px',boxShadow: '0 2px 5px    grey'}}>
         <CssBaseline />
         <div className={classes.paper}>
             <Avatar className={classes.avatar}>
-            <LockOutlinedIcon style={{backgroundColor:'#2E86AB'}}/>
+            <LockOutlinedIcon style={{backgroundColor:'orange'}}/>
             </Avatar>
             <Typography component="h1" variant="h5">
             Sign in
@@ -144,13 +139,13 @@ export default function SignUp() {
                 </Grid>
                 
             </Grid>
-            <Button style={{backgroundColor:'#2E86AB',color:"white"}}
+            <Button style={{backgroundColor:'orange',color:"white"}}
                 fullWidth
                 variant="contained"
                 className={classes.submit}
                 onClick={handleSubmit}
             >
-                Sign Up
+                Sign In
             </Button>
             <Grid container justify="flex-end">
                 <Grid item>
@@ -165,3 +160,4 @@ export default function SignUp() {
     </div>
   );
 }
+   

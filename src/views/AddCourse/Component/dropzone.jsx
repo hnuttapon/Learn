@@ -9,33 +9,12 @@ const thumbsContainer = {
   marginTop: 16,
 };
 
-const thumb = {
-  display: 'inline-flex',
-  borderRadius: 2,
-  border: '1px solid #eaeaea',
-  marginBottom: 8,
-  marginRight: 8,
-  width:'700px',
-  height:'400px',
-  backgroundColor:'white',
-  padding: 4,
-  boxSizing: 'border-box',
-  marginLeft:'auto',
-  marginRight:'auto',
-};
-
 const thumbInner = {
   display: 'flex',
   minWidth: 0,
   overflow: 'hidden',
   marginLeft:'auto',
   marginRight:'auto',
-};
-
-const img = {
-  display: 'block',
-  width: 'auto',
-  height: '100%',
 };
 
 
@@ -47,6 +26,7 @@ const ImgDropzone = (props) => {
       setFiles(acceptedFiles.map(file => Object.assign(file, {
         preview: URL.createObjectURL(file)
       })));
+      props.childToParent(acceptedFiles[0]);
     }
   });
   

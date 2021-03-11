@@ -173,7 +173,7 @@ function DropZone(props) {
             </section>
 
             <button style={{ backgroundColor: props.bgColor, border: 'none', boxShadow: 'none', marginTop: '10px' }} variant="contained" onClick={remove(1)}>
-                <DeleteIcon style={{ fontSize: 40, color: '#63B995' }} />
+                <DeleteIcon style={{ fontSize: 40, color: '#63B995',backgroundColor:'none' }} />
             </button>
         </div>
     );
