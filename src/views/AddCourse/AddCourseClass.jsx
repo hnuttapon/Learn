@@ -33,10 +33,6 @@ const AddCourseClass = () => {
   const [startTime, setStarttime] = useState();
 
 
-  // const childToParent = (value) => {
-  //   setAccessControl(value);
-  // }
-
   return (
     <div style={{ "font-family": "Kanit, sans-serif" }}>
       <Header bgColor='#63B995' />

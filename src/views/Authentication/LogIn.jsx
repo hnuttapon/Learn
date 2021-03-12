@@ -9,7 +9,9 @@ import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import { CCallout } from '@coreui/react';
-import { useDispatch } from 'react-redux';
+import {useSelector, useDispatch} from 'react-redux';
+import {login} from '../../actions';
+import { useHistory } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -39,11 +41,14 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-export default function SignUp() {
+const SignIn = () => {
   const classes = useStyles();
+
+  const dispatch = useDispatch(); 
+  let history = useHistory();
+
   const [users,setUser] = useState([]);
 
-  const dispatch = useDispatch
 
   const [note, setNote] = useState({
     Email: "",
@@ -77,25 +82,27 @@ export default function SignUp() {
             Email: note.Email,
             Password: note.Password,
         })
-    })
-        .then(res => res.json())
-        .then((result) => {
-            alert(result[0]);
-            setUser(result[0]);
-            // this.setState({snackbaropen:true, snackbarmsg:result})
-
-            console.log(users.FirstName);
-            // dispatch(
-            //   login({
-                
-            //   })
-            // )
-        },
-        (error) => {
-            // this.setState({snackbaropen:true, snackbarmsg:'failed'})
-                alert(error);
+    }) 
+    .then(res => res.json())
+    .then((result) => {
+        alert(result);
+        setUser(result[0]);
+        // this.setState({snackbaropen:true, snackbarmsg:result})
+        if(result != 0){
+          dispatch(login(result[0]));
+          history.push("/dashboard");
         }
-        )
+        else{
+          alert("Not Found");
+        }
+
+    },
+  
+    (error) => {
+        // this.setState({snackbaropen:true, snackbarmsg:'failed'})
+            alert(error);
+    }
+    )
 }
 
   return (
@@ -160,4 +167,6 @@ export default function SignUp() {
     </div>
   );
 }
+
+export default SignIn;
    
