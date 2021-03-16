@@ -17,6 +17,15 @@ const LoggedReducer = (state = initialState, action) => {
         Role: action.payload.Role,
       }
     }
+    else if(action.type === 'LOGOUT'){
+      return {
+        UID: null,
+        FirstName: null,
+        LastName: null,
+        Email: null,
+        Role: null,
+      }
+    }
     else{
       return state;
     }

@@ -1,5 +1,5 @@
-import React from 'react';
-import { HashRouter, Route, Switch } from 'react-router-dom';
+import React,{useEffect} from 'react';
+import { HashRouter, Route, Switch ,useLocation  } from 'react-router-dom';
 import './scss/style.scss';
 
 
@@ -34,13 +34,17 @@ const IDP = React.lazy(() => import('./views/IDP/IDP'));
 const AnnualCourse = React.lazy(() => import('./views/IDP/AnnualCourse'));
 const CourseHistory = React.lazy(() => import('./views/History/CourseHistory/CourseHistory'));
 
+const DashboardUser = React.lazy(() => import('./views/DashboardUser/DashboardUser'));
+
 ///Authentication
 const Register = React.lazy(() => import('./views/Authentication/Register'));
 const LogIn = React.lazy(() => import('./views/Authentication/LogIn'));
 
 const App = () => {
-    return (
-        <HashRouter>
+    const pathname = window.location.pathname
+    console.log(pathname);
+    return (        
+        <HashRouter> 
             <React.Suspense fallback={loading}>
                 <Switch>
                     <Route path="/dashboard" name="Home" render={props => <TheLayout {...props} />} />
@@ -67,6 +71,8 @@ const App = () => {
                     <Route path="/BuyCourse/Receipt" component={Receipt} />
                     <Route path="/IDP" component={IDP} />
                     <Route path="/AnnualCourse" component={AnnualCourse} />
+
+                    <Route path="/DashboardUser" component={DashboardUser} />
 
                     {/* Authentication */}
                     <Route path="/Register" component={Register} />

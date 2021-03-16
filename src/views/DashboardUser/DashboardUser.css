@@ -1,8 +1,23 @@
 .nav-link{
     font-family: 'Kanit', sans-serif;
-    width: 115px;
-    text-align: center;
-    padding-top:'10px';
+    width: 160px;
+    text-align: left;
+    padding-top:10px;
+    /* padding-bottom:20px; */
+    color: white !important;
+}
+
+.nav-link:hover {
+    background-color: #E7BB41;
+    text-decoration: none;
+    color: black; 
+  }
+
+.nav-list{
+    padding-left: 0px;
+    color: #453F3C !important;
+    font-size: 17px;
+    font-weight: 400;
 }
 
 .profile{
@@ -13,12 +28,7 @@
     margin-left: 10px;
 }
 
-.nav-link:hover {
-  background-color: #EF820D;
-  border-radius: 10px;
-  text-decoration: none;
-  color: black; 
-}
+
 
 .logout{
   background-color:#C42847;
@@ -42,7 +52,7 @@
   font-family: Kanit, sans-serif;
   font-weight: 500;
   font-size: 25px;
-  background-color:#33658A;
+  background-color:#EF820D;
   border-radius: 50px;
   padding:7px;
   padding-left: 18px;

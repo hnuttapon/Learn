@@ -20,7 +20,7 @@ const TheAside = () => {
       onShowChange={(state) => setState(state)}
     >
       <CSidebarClose onClick={() => setState(false) } />
-      {/*aside content*/}
+      {/* aside content */}
       <div className="nav-underline">
         <div className="nav nav-tabs">
           <div className="nav-item">

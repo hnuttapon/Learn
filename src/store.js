@@ -1,19 +1,28 @@
-import { createStore } from 'redux'
+import {applyMiddleware, combineReducers, compose, createStore} from "redux";
+import LoggedReducer from './reducers/isLogged';
+import thunk from "redux-thunk";
+
 
 const initialState = {
-  sidebarShow: 'responsive',
-  asideShow: false,
-  darkMode: false
-}
+  sidebarShow: 'responsive'
+};
 
-const changeState = (state = initialState, { type, ...rest }) => {
+const changeStateReducer = (state = initialState, { type, ...rest }) => {
   switch (type) {
     case 'set':
-      return {...state, ...rest }
+      return {...state, ...rest };
     default:
       return state
   }
-}
-
-const store = createStore(changeState)
+};
+const rootReducers = combineReducers({
+  Logged: LoggedReducer,
+  changeState: changeStateReducer
+});
+const allEnhancers = compose(
+  applyMiddleware(thunk)
+);
+const store = createStore(
+  rootReducers, allEnhancers
+);
 export default store

@@ -60,6 +60,8 @@
     "react-slick": "^0.28.0",
     "react-window": "^1.8.6",
     "redux": "^4.0.5",
+    "redux-persist": "^6.0.0",
+    "redux-thunk": "^2.3.0",
     "sass": "^1.32.7",
     "slick-carousel": "^1.8.1"
   },

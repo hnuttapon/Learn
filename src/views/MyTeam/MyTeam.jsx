@@ -1,15 +1,29 @@
 import React from "react";
 import Title from "../Course/CourseCard/Component/Title";
 import Header from "../Header/Header";
+import HeaderAdmin from "../Header/HeaderAdmin";
 import "./MyTeam.css";
 import TeamCard from "./Component/TeamCard";
 import MyTeamData from "./MyTeamData";
 
+import {useSelector} from "react-redux";
+
 const MyTeam = (props) => {
+  const Role = useSelector(state => state.Logged.Role);
+
+  const HeaderSelector = (role) =>{
+    if(role == "User"){
+      return <Header bgColor='#63B995' />;
+    }
+    else if(role == "Admin"){
+      return <HeaderAdmin bgColor='#63B995' />;
+    }
+  }
 
   return (
-    <div style={{minHeight:'100%',"font-family": "Kanit, sans-serif" }}>
-      <Header bgColor='#63B995' />
+    <div style={{minHeight:'100%',"font-family": "Kanit, sans-serif" }}> 
+      {/* {HeaderSelector(Role)} */}
+      <Header />
       <div className="topicBackground" style={{ backgroundColor: '#63B995' }}>
         <div className="container-xl" style={{ paddingBottom: '20px' }}>
           <div className="titleBox" style={{ marginLeft: 'auto', marginRight: 'auto', marginBottom: '0px', width: '100%' }}>

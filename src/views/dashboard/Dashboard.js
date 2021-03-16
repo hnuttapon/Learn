@@ -12,13 +12,8 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
 import {
-  CBadge,
-  CButton,
-  CButtonGroup,
   CCard,
   CCardBody,
-  CCardFooter,
-  CCardHeader,
   CCol,
   CProgress,
   CRow,
@@ -26,12 +21,9 @@ import {
 } from '@coreui/react'
 
 import {
-  CChartBar,
   CChartLine,
   CChartDoughnut,
   CChartRadar,
-  CChartPie,
-  CChartPolarArea
 } from '@coreui/react-chartjs'
 
 const WidgetsDropdown = lazy(() => import('../widgets/WidgetsDropdown.js'))
@@ -423,76 +415,7 @@ const Dashboard = () => {
               </CCardBody>
             </CCard>
           </CCol>
-          <CCol xl="12">
-            <CCard style={{ minHeight: '95%' }}>
-              <CCardBody>
-                <CCallout color="warning">
-                  <strong className="h4">Learning Trend</strong>
-                </CCallout>
-              </CCardBody>
-
-              <CCardBody style={{ width: '85%', marginLeft: 'auto', marginRight: 'auto' }}>
-                <CChartLine
-                  style={{ height: "300px" }}
-                  datasets={[
-                    {
-                      label: 'Data One',
-                      backgroundColor: 'rgb(228,102,81,0.9)',
-                      data: [30, 39, 10, 50, 30, 70, 35]
-                    },
-                    {
-                      label: 'Data Two',
-                      backgroundColor: 'rgb(0,216,255,0.9)',
-                      data: [39, 80, 40, 35, 40, 20, 45]
-                    }
-                  ]}
-                  options={{
-                    tooltips: {
-                      enabled: true
-                    },
-                    maintainAspectRatio: false
-                  }}
-                  labels="months"
-                />
-              </CCardBody>
-            </CCard>
-          </CCol>
-
-          <CCol xl="12">
-            <CCard style={{ minHeight: '95%',paddingBottom:'55px' }}>
-              <CCardBody>
-                <CCallout color="warning">
-                  <strong className="h4">หลักสูตรแนะนำ</strong>
-                </CCallout>
-              </CCardBody>
-
-              <CCardBody >
-                <Slider {...settings}>
-                  {CourseData.filter((id) => id.courseType === "online").map(
-                    (courseItem) => (
-                      <div>
-                        <center>
-                          <CardOnline
-                            id={courseItem.id}
-                            key={courseItem.id}
-                            coursename={courseItem.title}
-                            category1={courseItem.category1}
-                            category2={courseItem.category2}
-                            people={courseItem.people}
-                            time={courseItem.time}
-                            rating={courseItem.rating}
-                            teacher={courseItem.teacher}
-                            img={courseItem.img}
-                            hot={courseItem.hot}
-                          />
-                        </center>
-                      </div>
-                    )
-                  )}
-                </Slider>
-              </CCardBody>
-            </CCard>
-          </CCol>
+      
         </CRow>
       </div>
     </>

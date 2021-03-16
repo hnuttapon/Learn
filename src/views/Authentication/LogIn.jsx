@@ -47,9 +47,6 @@ const SignIn = () => {
   const dispatch = useDispatch(); 
   let history = useHistory();
 
-  const [users,setUser] = useState([]);
-
-
   const [note, setNote] = useState({
     Email: "",
     Password: "",
@@ -86,11 +83,15 @@ const SignIn = () => {
     .then(res => res.json())
     .then((result) => {
         alert(result);
-        setUser(result[0]);
         // this.setState({snackbaropen:true, snackbarmsg:result})
         if(result != 0){
           dispatch(login(result[0]));
-          history.push("/dashboard");
+          if(result[0].Role == "User"){
+            history.push("/dashboard");
+          }
+          else if (result[0].Role == "Admin"){
+            history.push("/ManagerDashboard");
+          }        
         }
         else{
           alert("Not Found");
