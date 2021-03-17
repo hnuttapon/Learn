@@ -11,7 +11,6 @@
 
 .nav-link-dashboard:hover {
     background-color: #F25757;
-    text-decoration: none;
     border-radius: 7px;
     margin-right: 10px;
     color: black; 
@@ -19,9 +18,10 @@
 
 .nav-list{
     padding-left: 0px;
+    text-decoration: none !important;
     color: white !important;
     font-size: 17px;
-    font-weight: 400;
+    font-weight: 300;
     position: relative;
     right: 13px;
 }

@@ -1,64 +1,65 @@
-import React from "react";
-import Topic from "../CourseCard/Component/Topic";
+import React from 'react';
+import { makeStyles } from '@material-ui/core/styles';
+import Card from '@material-ui/core/Card';
+import CardActionArea from '@material-ui/core/CardActionArea';
+import CardContent from '@material-ui/core/CardContent';
+import CardMedia from '@material-ui/core/CardMedia';
+import Typography from '@material-ui/core/Typography';
+import DateRangeIcon from '@material-ui/icons/DateRange';
 
+const useStyles = makeStyles({
+  root: {
+    maxWidth: 230,
+    borderRadius:'20px',
+    marginBottom:'10px',
+  },
+  detailbox:{
+    backgroundColor:'#4D5359',
+    padding:'1px',
+    paddingTop:'11px',
+    marginTop:'28px',
+    textAlign:'center',
+    width:'100%',
+    color:'white',
+    'box-shadow': '20px 20px #BCD8B7',
+    borderTopLeftRadius: '10px',
+    borderTopRightRadius: '10px',
+  },
+  authorbox:{
+    backgroundColor:'#3C7A89',
+    padding:'1px',
+    paddingTop:'11px',
+    width:'100%',
+    color:'white',
+    'box-shadow': '20px 20px #BCD8B7',
+    borderBottomRightRadius: '10px',
+    borderBottomLeftRadius: '10px',
+  }
+});
 
-const CardBrief = (props) => {
+export default function ImgMediaCard(props) {
+  const classes = useStyles();
+
   return (
-    <div className="row margin5" style={{background:'ghostwhite',borderRadius:'10px',marginTop:'10px',width:'95%'}}>
-        <div
-            className="col-xl-5 col-lg-8 col-md-8 col-sm-12"
-            style={{ paddingRight: "0%", paddingLeft: "0%" }}
-        >
-            <img
-            style={{borderTopLeftRadius:'10px',borderBottomLeftRadius:'10px'}}
-            alt="Online"
-            width = "100%"
-            height = "100%"
-            src= {props.img}            
-            />
-        </div>
-        <div className="col-xl-7 col-lg-4 col-md-4 col-sm-12">
-            <h2
-            style={{
-                color: "#235789",
-                "font-family": "Kanit, sans-serif",
-                fontWeight: "450",
-                fontSize: "20px",
-                marginTop: "15px",
-                textAlign:'left',
-            }}
-            >
-            Online
-            </h2>
-            <Topic
-            name={props.coursename}
-            fontSize="20px"
-            color="black"
-            fontWeight="500"
-            textAlign="left"
-            />
-            <Topic
-            name= "time : "
-            marginLeft="0.1%"
-            fontSize="20px"
-            color="black"
-            fontWeight="500"
-            display="inline"
-            textAlign="left"
-            />
-            <span>
-            <Topic
-            name= {props.time}
-            marginLeft="0.1%"
-            fontSize="20px"
-            color="black"
-            fontWeight="500"
-            display="inline-block"
-            textAlign="left"
-            /></span>
-        </div>
-    </div>  
+    <Card className={classes.root}>
+      <CardActionArea>
+        <CardMedia
+          component="img"
+          alt="Contemplative Reptile"
+          height="130"
+          image={props.img}
+          title="Contemplative Reptile"
+        />
+        <CardContent>
+          <Typography gutterBottom variant="h5" component="h2" style={{textAlign:'center',fontSize:'20px',color:'black',fontWeight:'700',height:'80px'}}>
+            {props.coursename}
+          </Typography>
+          <div style={{ display: "flex", alignItems: "center", color: "#000000c4" }} >
+              <DateRangeIcon style={{ marginRight: 5 }} />
+              <Typography variant="body2" style={{ marginLeft: 4, textAlign: "left" }}>{" "}<span style={{ fontWeight: 500 }}>{props.duration}</span>{" "}</Typography>
+          </div>
+        </CardContent>
+      </CardActionArea>
+    </Card>
   );
-};
-
-export default CardBrief;
+}

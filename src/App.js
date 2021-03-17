@@ -59,7 +59,7 @@ const App = () => {
                     <Route path="/Teacher" component={Teacher} />
                     <Route path="/AddTeacher" component={AddTeacher} />
                     <Route path="/Dialogue/User" component={DialogueUser} />
-                    <Route path="/Dialogue/Boss" component={DialogueBoss} />
+                    <Route path="/Dialogue/Manager" component={DialogueBoss} />
                     <Route path="/Dialogue/Summary" component={DialogueSummary} />
                     <Route path="/TeacherInfo" component={TeacherInfo} />
                     <Route path="/OnlineLearning" component={OnlineLearning} />

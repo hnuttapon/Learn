@@ -355,7 +355,7 @@ function ResponsiveDrawer(props) {
             <MenuIcon />
           </IconButton>
           <span style={{ zIndex: '1' }}>
-            <h1 className="welcome">
+            <h1 className="Head">
               Dashboard
             </h1>
           </span>
