@@ -1,9 +1,9 @@
 .nav-link-dashboard{
     font-family: 'Kanit', sans-serif;
-    width: 180px;
+    width: 200px;
     text-align: left;
-    padding-top:10px;
-    margin-bottom: 8px;
+    padding-top:8px;
+    margin-bottom: 4px;
     /* padding-bottom:20px; */
     color: white !important;
     /* background-color: white; */
@@ -61,7 +61,7 @@
   box-shadow: 12px 0px #E0FBFC;
 } */
 
-.welcome{
+.Head{
   color: white;
   font-family: Kanit, sans-serif;
   font-weight: 500;
@@ -86,4 +86,12 @@
   position: relative;
   left: -18px;
 }
-  
+
+
+.profile-dashboard-manager{
+  width: 30px;
+  text-align: center;
+  padding-top:'10px';
+  margin-right: 10px;
+  margin-left: 10px;
+}

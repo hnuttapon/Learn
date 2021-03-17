@@ -10,11 +10,8 @@ import InboxIcon from '@material-ui/icons/MoveToInbox';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
-import ListItemText from '@material-ui/core/ListItemText';
-import MailIcon from '@material-ui/icons/Mail';
 import MenuIcon from '@material-ui/icons/Menu';
 import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 
 import { Calendar as BigCalendar, momentLocalizer } from 'react-big-calendar'
@@ -30,12 +27,19 @@ import "slick-carousel/slick/slick-theme.css";
 
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import { useSelector, useDispatch } from "react-redux";
-import { logout } from '../../actions';
+import {logout} from '../../actions';
 import { useHistory } from "react-router-dom";
 
 import "./DashboardUser.css";
+
+
 ////ICON
 import HistoryIcon from '@material-ui/icons/History';
+import SchoolIcon from '@material-ui/icons/School';
+import DescriptionIcon from '@material-ui/icons/Description';
+import CommentIcon from '@material-ui/icons/Comment';
+import AccessibilityIcon from '@material-ui/icons/Accessibility';
+import DateRangeIcon from '@material-ui/icons/DateRange';
 
 import {
   CCard,
@@ -194,7 +198,7 @@ const useStyles = makeStyles((theme) => ({
   toolbar: theme.mixins.toolbar,
   drawerPaper: {
     width: drawerWidth,
-    backgroundColor:'#D8D8D8',
+    backgroundColor:'#333333',
   },
   content: {
     flexGrow: 1,
@@ -284,20 +288,43 @@ function ResponsiveDrawer(props) {
       <div className={classes.toolbar} />
      
       <List>   
-          <Divider />
-          <ListItem className="nav-link " >
-            <ListItemIcon><InboxIcon style={{color:'white'}}/> </ListItemIcon>
-            <a className="nav-list" >คอร์สเรียนทั้งหมด</a>
+          {/* <Divider /> */}
+          <ListItem className="nav-link-dashboard" >
+            <ListItemIcon><SchoolIcon className="icon-orange"/></ListItemIcon>
+            <a className="nav-list">คอร์สเรียนทั้งหมด</a>
           </ListItem>
-          <ListItem className="nav-link " >
-            <ListItemIcon><InboxIcon style={{color:'white'}}/> </ListItemIcon>
+          <ListItem className="nav-link-dashboard" >
+            <ListItemIcon>
+            <img width="25px" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEuMSIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHhtbG5zOnN2Z2pzPSJodHRwOi8vc3ZnanMuY29tL3N2Z2pzIiB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiIgeD0iMCIgeT0iMCIgdmlld0JveD0iMCAwIDUxMiA1MTIiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDUxMiA1MTIiIHhtbDpzcGFjZT0icHJlc2VydmUiIGNsYXNzPSIiPjxnPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgoJPGc+CgkJPHBhdGggZD0iTTEzNSwwYy0yNC44MTQsMC00NSwyMC4xODYtNDUsNDVjMCwyNC44MTQsMjAuMTg2LDQ1LDQ1LDQ1YzI0LjgxNCwwLDQ1LTIwLjE4Niw0NS00NUMxODAsMjAuMTg2LDE1OS44MTQsMCwxMzUsMHoiIGZpbGw9IiNmZGY1YmYiIGRhdGEtb3JpZ2luYWw9IiMwMDAwMDAiIHN0eWxlPSIiIGNsYXNzPSIiPjwvcGF0aD4KCTwvZz4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgoJPGc+CgkJPHBhdGggZD0iTTQ2NywwSDI1NWMtMjQuODE0LDAtNDUsMjAuMTg2LTQ1LDQ1djUzLjMwMmM0LjQ0MiwyLjU4Nyw4LjY4OCw1LjU0MywxMi40MjIsOS4yNzZsMjkuNDE0LDI5LjQxNGwyMS4zMjgtMTAuNjY0ICAgIGMxNC4yOTktNy4xMjUsMjYuNzMzLTcuNDI5LDM5LjcyNS00LjU4M2w3MS45ODQtMzUuOTkzYzIyLjE4OS0xMC45OTIsNDkuMTA1LTIuMzQ2LDYwLjM1MiwyMC4wODMgICAgYzExLjIwOCwyMi4zODYsMi4xMTMsNDkuMzE5LTIwLjA5OCw2MC40MjVsLTY4Ljk4NSwzNC40OTJjLTUuMjk3LDE0LjM2MS0xNS41NiwyNi4wNjEtMjkuMzM1LDMyLjkzNUwzMTQuMTgsMjQwSDQ2NyAgICBjMjQuODE0LDAsNDUtMjAuMTg2LDQ1LTQ1VjQ1QzUxMiwyMC4xODYsNDkxLjgxNCwwLDQ2NywweiIgZmlsbD0iI2ZkZjViZiIgZGF0YS1vcmlnaW5hbD0iIzAwMDAwMCIgc3R5bGU9IiIgY2xhc3M9IiI+PC9wYXRoPgoJPC9nPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+Cgk8Zz4KCQk8cGF0aCBkPSJNNDE4LjQxOCwxMTkuMjkyYy0zLjcyMS03LjQxMi0xMi43LTEwLjM4Ni0yMC4xMjctNi43MDlsLTgzLjY1Miw0MS44MjVjLTguMzI5LTQuNzc1LTE4LjU3NC01Ljk2Ny0yOC4wNTctMS4yNDMgICAgbC00MC42NjQsMjAuMzMybC00NC43MDctNDQuNzA3QzE5NS41NDIsMTIzLjEyLDE4OC4wMTMsMTIwLDE4MCwxMjBINjBjLTMzLjA5MSwwLTYwLDI2LjkwOS02MCw2MHY5MSAgICBjMCwyMC42NzgsMjAuNjAzLDM1LjE5Nyw0MC4wMDUsMjguMjg2TDYwLDI5Mi4yMjZjMCw2Ni4yMjYsMCwxMjMuMjcxLDAsMTg5Ljc3NGMwLDE2LjU2NywxMy40MzEsMzAsMzAsMzAgICAgYzE2LjU2OSwwLDMwLTEzLjQzMywzMC0zMGMwLTM5LjUwMywwLTY4LjU3LDAtMTA2YzAtOC4yODYsNi43MTYtMTUsMTUtMTVzMTUsNi43MTQsMTUsMTVjMCwzOC42NDMsMCw2Ni4zNTYsMCwxMDYgICAgYzAsMTYuNTY3LDEzLjQzMSwzMCwzMCwzMGMxNi41NjksMCwzMC0xMy40MzMsMzAtMzBjMC05Mi4zNjgsMC0xNTkuMzIxLDAtMjUwLjkyMWwxOS45OTUsNy4wNDYgICAgYzguMzYxLDIuOTU5LDE2LjI1MiwyLjI4MywyMy40MjMtMS4yODlsNjAtMzBjMTAuMzc1LTUuMTc2LDE2LjA0Ny0xNS41NzcsMTYuMjMtMjYuMzg3bDgyLjA2MS00MS4wMyAgICBDNDE5LjEyMSwxMzUuNzEzLDQyMi4xMjQsMTI2LjcwNCw0MTguNDE4LDExOS4yOTJ6IiBmaWxsPSIjZmRmNWJmIiBkYXRhLW9yaWdpbmFsPSIjMDAwMDAwIiBzdHlsZT0iIiBjbGFzcz0iIj48L3BhdGg+Cgk8L2c+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPC9nPjwvc3ZnPg==" />
+            </ListItemIcon>
+            <a className="nav-list">ผู้สอน</a>
+          </ListItem>
+          <ListItem className="nav-link-dashboard" >
+            <ListItemIcon><DescriptionIcon className="icon-orange"/> </ListItemIcon>
             <a className="nav-list" >ขออนุญาติอบรมนอกหลักสูตร</a>
           </ListItem>
-          <ListItem className="nav-link " >
-            <ListItemIcon><HistoryIcon style={{color:'#0B4F6C'}}/> </ListItemIcon>
+          <ListItem className="nav-link-dashboard" >
+            <ListItemIcon><HistoryIcon className="icon-orange"/> </ListItemIcon>
             <a className="nav-list" >ประวัติการเรียน</a>
           </ListItem>
-          <Divider />
+          <ListItem className="nav-link-dashboard" >
+            <ListItemIcon><CommentIcon className="icon-blue"/> </ListItemIcon>
+            <a className="nav-list" >Dialogue</a>
+          </ListItem>
+          <ListItem className="nav-link-dashboard" >
+            <ListItemIcon><AccessibilityIcon className="icon-blue"/> </ListItemIcon>
+            <a className="nav-list" >My Individual Development Plan</a>
+          </ListItem>
+          <ListItem className="nav-link-dashboard" >
+            <ListItemIcon><DateRangeIcon className="icon-blue"/> </ListItemIcon>
+            <a className="nav-list" >My Annual Development Plan</a>
+          </ListItem>
+          <ListItem>
+            <button onClick={handleLogout} className="logout-dashboard">
+              <span style={{ display: 'inline', color: 'white', marginLeft: '5px', fontWeight: '100' }}><h5 style={{ display: 'inline', fontWeight: '500', color: 'white' }}>Log Out</h5></span>
+            </button>
+          </ListItem>
+         
       </List>
       
       

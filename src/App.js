@@ -34,7 +34,9 @@ const IDP = React.lazy(() => import('./views/IDP/IDP'));
 const AnnualCourse = React.lazy(() => import('./views/IDP/AnnualCourse'));
 const CourseHistory = React.lazy(() => import('./views/History/CourseHistory/CourseHistory'));
 
+//Dashboard
 const DashboardUser = React.lazy(() => import('./views/DashboardUser/DashboardUser'));
+const DashboardManager = React.lazy(() => import('./views/DashboardManager/DashboardManager')); 
 
 ///Authentication
 const Register = React.lazy(() => import('./views/Authentication/Register'));
@@ -47,8 +49,8 @@ const App = () => {
         <HashRouter> 
             <React.Suspense fallback={loading}>
                 <Switch>
-                    <Route path="/dashboard" name="Home" render={props => <TheLayout {...props} />} />
-                    <Route path="/ManagerDashboard" name="Home" render={props => <TheLayout {...props} />} />
+                    {/* <Route path="/dashboard" name="Home" render={props => <TheLayout {...props} />} />
+                    <Route path="/ManagerDashboard" name="Home" render={props => <TheLayout {...props} />} /> */}
                     <Route path="/MyCourse" component={CourseDescription} />
                     <Route path="/AllCourse" component={AllCourse} />
                     <Route path="/MyTeam" component={MyTeam} />
@@ -72,7 +74,10 @@ const App = () => {
                     <Route path="/IDP" component={IDP} />
                     <Route path="/AnnualCourse" component={AnnualCourse} />
 
-                    <Route path="/DashboardUser" component={DashboardUser} />
+                    {/* Dashboard */}
+                    <Route path="/Dashboard/User" component={DashboardUser} />
+                    <Route path="/Dashboard/Manager" component={DashboardManager} />
+
 
                     {/* Authentication */}
                     <Route path="/Register" component={Register} />
