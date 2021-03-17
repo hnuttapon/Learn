@@ -27,7 +27,7 @@ import "slick-carousel/slick/slick-theme.css";
 
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import { useSelector, useDispatch } from "react-redux";
-import {logout} from '../../actions';
+import { logout } from '../../actions';
 import { useHistory } from "react-router-dom";
 
 import "./DashboardUser.css";
@@ -168,7 +168,7 @@ const useStyles = makeStyles((theme) => ({
     flexWrap: 'wrap',
     justifyContent: 'space-around',
     overflow: 'hidden',
-    marginLeft: '10px',
+    marginLeft: '15px',
     backgroundColor: theme.palette.background.paper,
   },
   drawer: {
@@ -182,7 +182,7 @@ const useStyles = makeStyles((theme) => ({
       width: `calc(100% - ${drawerWidth}px)`,
       marginLeft: drawerWidth,
     },
-    backgroundColor:'#F5F5F5',
+    backgroundColor: '#F5F5F5',
   },
   menuButton: {
     marginRight: theme.spacing(2),
@@ -198,7 +198,7 @@ const useStyles = makeStyles((theme) => ({
   toolbar: theme.mixins.toolbar,
   drawerPaper: {
     width: drawerWidth,
-    backgroundColor:'#333333',
+    backgroundColor: '#333333',
   },
   content: {
     flexGrow: 1,
@@ -286,48 +286,61 @@ function ResponsiveDrawer(props) {
   const drawer = (
     <div>
       <div className={classes.toolbar} />
-     
-      <List>   
-          {/* <Divider /> */}
+
+      <List>
+        <a href="/#/AllCourse" style={{ textDecoration: 'none' }}>
           <ListItem className="nav-link-dashboard" >
-            <ListItemIcon><SchoolIcon className="icon-orange"/></ListItemIcon>
+            <ListItemIcon><SchoolIcon className="icon-orange" /></ListItemIcon>
             <a className="nav-list">คอร์สเรียนทั้งหมด</a>
           </ListItem>
+        </a>
+        <a href="/#/Teacher" style={{ textDecoration: 'none' }}>
           <ListItem className="nav-link-dashboard" >
             <ListItemIcon>
-            <img width="25px" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEuMSIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHhtbG5zOnN2Z2pzPSJodHRwOi8vc3ZnanMuY29tL3N2Z2pzIiB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiIgeD0iMCIgeT0iMCIgdmlld0JveD0iMCAwIDUxMiA1MTIiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDUxMiA1MTIiIHhtbDpzcGFjZT0icHJlc2VydmUiIGNsYXNzPSIiPjxnPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgoJPGc+CgkJPHBhdGggZD0iTTEzNSwwYy0yNC44MTQsMC00NSwyMC4xODYtNDUsNDVjMCwyNC44MTQsMjAuMTg2LDQ1LDQ1LDQ1YzI0LjgxNCwwLDQ1LTIwLjE4Niw0NS00NUMxODAsMjAuMTg2LDE1OS44MTQsMCwxMzUsMHoiIGZpbGw9IiNmZGY1YmYiIGRhdGEtb3JpZ2luYWw9IiMwMDAwMDAiIHN0eWxlPSIiIGNsYXNzPSIiPjwvcGF0aD4KCTwvZz4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgoJPGc+CgkJPHBhdGggZD0iTTQ2NywwSDI1NWMtMjQuODE0LDAtNDUsMjAuMTg2LTQ1LDQ1djUzLjMwMmM0LjQ0MiwyLjU4Nyw4LjY4OCw1LjU0MywxMi40MjIsOS4yNzZsMjkuNDE0LDI5LjQxNGwyMS4zMjgtMTAuNjY0ICAgIGMxNC4yOTktNy4xMjUsMjYuNzMzLTcuNDI5LDM5LjcyNS00LjU4M2w3MS45ODQtMzUuOTkzYzIyLjE4OS0xMC45OTIsNDkuMTA1LTIuMzQ2LDYwLjM1MiwyMC4wODMgICAgYzExLjIwOCwyMi4zODYsMi4xMTMsNDkuMzE5LTIwLjA5OCw2MC40MjVsLTY4Ljk4NSwzNC40OTJjLTUuMjk3LDE0LjM2MS0xNS41NiwyNi4wNjEtMjkuMzM1LDMyLjkzNUwzMTQuMTgsMjQwSDQ2NyAgICBjMjQuODE0LDAsNDUtMjAuMTg2LDQ1LTQ1VjQ1QzUxMiwyMC4xODYsNDkxLjgxNCwwLDQ2NywweiIgZmlsbD0iI2ZkZjViZiIgZGF0YS1vcmlnaW5hbD0iIzAwMDAwMCIgc3R5bGU9IiIgY2xhc3M9IiI+PC9wYXRoPgoJPC9nPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+Cgk8Zz4KCQk8cGF0aCBkPSJNNDE4LjQxOCwxMTkuMjkyYy0zLjcyMS03LjQxMi0xMi43LTEwLjM4Ni0yMC4xMjctNi43MDlsLTgzLjY1Miw0MS44MjVjLTguMzI5LTQuNzc1LTE4LjU3NC01Ljk2Ny0yOC4wNTctMS4yNDMgICAgbC00MC42NjQsMjAuMzMybC00NC43MDctNDQuNzA3QzE5NS41NDIsMTIzLjEyLDE4OC4wMTMsMTIwLDE4MCwxMjBINjBjLTMzLjA5MSwwLTYwLDI2LjkwOS02MCw2MHY5MSAgICBjMCwyMC42NzgsMjAuNjAzLDM1LjE5Nyw0MC4wMDUsMjguMjg2TDYwLDI5Mi4yMjZjMCw2Ni4yMjYsMCwxMjMuMjcxLDAsMTg5Ljc3NGMwLDE2LjU2NywxMy40MzEsMzAsMzAsMzAgICAgYzE2LjU2OSwwLDMwLTEzLjQzMywzMC0zMGMwLTM5LjUwMywwLTY4LjU3LDAtMTA2YzAtOC4yODYsNi43MTYtMTUsMTUtMTVzMTUsNi43MTQsMTUsMTVjMCwzOC42NDMsMCw2Ni4zNTYsMCwxMDYgICAgYzAsMTYuNTY3LDEzLjQzMSwzMCwzMCwzMGMxNi41NjksMCwzMC0xMy40MzMsMzAtMzBjMC05Mi4zNjgsMC0xNTkuMzIxLDAtMjUwLjkyMWwxOS45OTUsNy4wNDYgICAgYzguMzYxLDIuOTU5LDE2LjI1MiwyLjI4MywyMy40MjMtMS4yODlsNjAtMzBjMTAuMzc1LTUuMTc2LDE2LjA0Ny0xNS41NzcsMTYuMjMtMjYuMzg3bDgyLjA2MS00MS4wMyAgICBDNDE5LjEyMSwxMzUuNzEzLDQyMi4xMjQsMTI2LjcwNCw0MTguNDE4LDExOS4yOTJ6IiBmaWxsPSIjZmRmNWJmIiBkYXRhLW9yaWdpbmFsPSIjMDAwMDAwIiBzdHlsZT0iIiBjbGFzcz0iIj48L3BhdGg+Cgk8L2c+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPC9nPjwvc3ZnPg==" />
+              <img width="25px" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEuMSIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHhtbG5zOnN2Z2pzPSJodHRwOi8vc3ZnanMuY29tL3N2Z2pzIiB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiIgeD0iMCIgeT0iMCIgdmlld0JveD0iMCAwIDUxMiA1MTIiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDUxMiA1MTIiIHhtbDpzcGFjZT0icHJlc2VydmUiIGNsYXNzPSIiPjxnPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgoJPGc+CgkJPHBhdGggZD0iTTEzNSwwYy0yNC44MTQsMC00NSwyMC4xODYtNDUsNDVjMCwyNC44MTQsMjAuMTg2LDQ1LDQ1LDQ1YzI0LjgxNCwwLDQ1LTIwLjE4Niw0NS00NUMxODAsMjAuMTg2LDE1OS44MTQsMCwxMzUsMHoiIGZpbGw9IiNmZGY1YmYiIGRhdGEtb3JpZ2luYWw9IiMwMDAwMDAiIHN0eWxlPSIiIGNsYXNzPSIiPjwvcGF0aD4KCTwvZz4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgoJPGc+CgkJPHBhdGggZD0iTTQ2NywwSDI1NWMtMjQuODE0LDAtNDUsMjAuMTg2LTQ1LDQ1djUzLjMwMmM0LjQ0MiwyLjU4Nyw4LjY4OCw1LjU0MywxMi40MjIsOS4yNzZsMjkuNDE0LDI5LjQxNGwyMS4zMjgtMTAuNjY0ICAgIGMxNC4yOTktNy4xMjUsMjYuNzMzLTcuNDI5LDM5LjcyNS00LjU4M2w3MS45ODQtMzUuOTkzYzIyLjE4OS0xMC45OTIsNDkuMTA1LTIuMzQ2LDYwLjM1MiwyMC4wODMgICAgYzExLjIwOCwyMi4zODYsMi4xMTMsNDkuMzE5LTIwLjA5OCw2MC40MjVsLTY4Ljk4NSwzNC40OTJjLTUuMjk3LDE0LjM2MS0xNS41NiwyNi4wNjEtMjkuMzM1LDMyLjkzNUwzMTQuMTgsMjQwSDQ2NyAgICBjMjQuODE0LDAsNDUtMjAuMTg2LDQ1LTQ1VjQ1QzUxMiwyMC4xODYsNDkxLjgxNCwwLDQ2NywweiIgZmlsbD0iI2ZkZjViZiIgZGF0YS1vcmlnaW5hbD0iIzAwMDAwMCIgc3R5bGU9IiIgY2xhc3M9IiI+PC9wYXRoPgoJPC9nPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+Cgk8Zz4KCQk8cGF0aCBkPSJNNDE4LjQxOCwxMTkuMjkyYy0zLjcyMS03LjQxMi0xMi43LTEwLjM4Ni0yMC4xMjctNi43MDlsLTgzLjY1Miw0MS44MjVjLTguMzI5LTQuNzc1LTE4LjU3NC01Ljk2Ny0yOC4wNTctMS4yNDMgICAgbC00MC42NjQsMjAuMzMybC00NC43MDctNDQuNzA3QzE5NS41NDIsMTIzLjEyLDE4OC4wMTMsMTIwLDE4MCwxMjBINjBjLTMzLjA5MSwwLTYwLDI2LjkwOS02MCw2MHY5MSAgICBjMCwyMC42NzgsMjAuNjAzLDM1LjE5Nyw0MC4wMDUsMjguMjg2TDYwLDI5Mi4yMjZjMCw2Ni4yMjYsMCwxMjMuMjcxLDAsMTg5Ljc3NGMwLDE2LjU2NywxMy40MzEsMzAsMzAsMzAgICAgYzE2LjU2OSwwLDMwLTEzLjQzMywzMC0zMGMwLTM5LjUwMywwLTY4LjU3LDAtMTA2YzAtOC4yODYsNi43MTYtMTUsMTUtMTVzMTUsNi43MTQsMTUsMTVjMCwzOC42NDMsMCw2Ni4zNTYsMCwxMDYgICAgYzAsMTYuNTY3LDEzLjQzMSwzMCwzMCwzMGMxNi41NjksMCwzMC0xMy40MzMsMzAtMzBjMC05Mi4zNjgsMC0xNTkuMzIxLDAtMjUwLjkyMWwxOS45OTUsNy4wNDYgICAgYzguMzYxLDIuOTU5LDE2LjI1MiwyLjI4MywyMy40MjMtMS4yODlsNjAtMzBjMTAuMzc1LTUuMTc2LDE2LjA0Ny0xNS41NzcsMTYuMjMtMjYuMzg3bDgyLjA2MS00MS4wMyAgICBDNDE5LjEyMSwxMzUuNzEzLDQyMi4xMjQsMTI2LjcwNCw0MTguNDE4LDExOS4yOTJ6IiBmaWxsPSIjZmRmNWJmIiBkYXRhLW9yaWdpbmFsPSIjMDAwMDAwIiBzdHlsZT0iIiBjbGFzcz0iIj48L3BhdGg+Cgk8L2c+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPC9nPjwvc3ZnPg==" />
             </ListItemIcon>
             <a className="nav-list">ผู้สอน</a>
           </ListItem>
+        </a>
+        <a href="/#/CoursePermission" style={{ textDecoration: 'none' }}>
           <ListItem className="nav-link-dashboard" >
-            <ListItemIcon><DescriptionIcon className="icon-orange"/> </ListItemIcon>
+            <ListItemIcon><DescriptionIcon className="icon-orange" /> </ListItemIcon>
             <a className="nav-list" >ขออนุญาติอบรมนอกหลักสูตร</a>
           </ListItem>
+        </a>
+        <a href="/#/MyHistory" style={{ textDecoration: 'none' }}>
           <ListItem className="nav-link-dashboard" >
-            <ListItemIcon><HistoryIcon className="icon-orange"/> </ListItemIcon>
+            <ListItemIcon><HistoryIcon className="icon-orange" /> </ListItemIcon>
             <a className="nav-list" >ประวัติการเรียน</a>
           </ListItem>
+        </a>
+        <a href="/#/Dialogue/User" style={{ textDecoration: 'none' }}>
           <ListItem className="nav-link-dashboard" >
-            <ListItemIcon><CommentIcon className="icon-blue"/> </ListItemIcon>
+            <ListItemIcon><CommentIcon className="icon-blue" /> </ListItemIcon>
             <a className="nav-list" >Dialogue</a>
           </ListItem>
+        </a>
+        <a href="/#/IDP" style={{ textDecoration: 'none' }}>
           <ListItem className="nav-link-dashboard" >
-            <ListItemIcon><AccessibilityIcon className="icon-blue"/> </ListItemIcon>
+            <ListItemIcon><AccessibilityIcon className="icon-blue" /> </ListItemIcon>
             <a className="nav-list" >My Individual Development Plan</a>
           </ListItem>
+        </a>
+        <a href="/#/AnnualCourse" style={{ textDecoration: 'none' }}>
           <ListItem className="nav-link-dashboard" >
-            <ListItemIcon><DateRangeIcon className="icon-blue"/> </ListItemIcon>
+            <ListItemIcon><DateRangeIcon className="icon-blue" /> </ListItemIcon>
             <a className="nav-list" >My Annual Development Plan</a>
           </ListItem>
-          <ListItem>
-            <button onClick={handleLogout} className="logout-dashboard">
-              <span style={{ display: 'inline', color: 'white', marginLeft: '5px', fontWeight: '100' }}><h5 style={{ display: 'inline', fontWeight: '500', color: 'white' }}>Log Out</h5></span>
-            </button>
-          </ListItem>
-         
+        </a>
+        <ListItem>
+          <button onClick={handleLogout} className="logout-dashboard">
+            <span style={{ display: 'inline', color: 'white', marginLeft: '5px', fontWeight: '100' }}><h5 style={{ display: 'inline', fontWeight: '500', color: 'white' }}>Log Out</h5></span>
+          </button>
+        </ListItem>
+
       </List>
-      
-      
+
+
     </div>
   );
 
@@ -359,7 +372,7 @@ function ResponsiveDrawer(props) {
               Dashboard
             </h1>
           </span>
-          
+
         </Toolbar>
       </AppBar>
       <nav className={classes.drawer} aria-label="mailbox folders">
@@ -451,11 +464,7 @@ function ResponsiveDrawer(props) {
                       </div>
                     </CCol>
                   </CRow>
-
                   <br />
-
-
-
                 </CCardBody>
               </CCard>
             </CCol>
@@ -511,21 +520,22 @@ function ResponsiveDrawer(props) {
                       <div className={classes.root}>
                         <GridList cellHeight={300} className={classes.gridList} >
                           {
-                            CourseData.filter(id => id.courseType === "online" && id.hot === "true").map(courseItem => (
-
-                              <CardBrief
-                                key={courseItem.id}
-                                coursename={courseItem.title}
-                                category1={courseItem.category1}
-                                category2={courseItem.category2}
-                                people={courseItem.people}
-                                time={courseItem.time}
-                                rating={courseItem.rating}
-                                teacher={courseItem.teacher}
-                                img={courseItem.img}
-                                hot={courseItem.hot}
-                              />
-
+                            CourseData.filter(id => id.courseType === "classroom" && id.hot === "true").map(courseItem => (
+                              <div className="col-xl-6" style={{ maxHeight: '250px' }}>
+                                <CardBrief
+                                  key={courseItem.id}
+                                  coursename={courseItem.title}
+                                  season={courseItem.season}
+                                  category1={courseItem.category1}
+                                  category2={courseItem.category2}
+                                  time={courseItem.time}
+                                  rating={courseItem.rating}
+                                  duration={courseItem.duration}
+                                  place={courseItem.place}
+                                  img={courseItem.img}
+                                  hot={courseItem.hot}
+                                />
+                              </div>
                             ))
                           }
                         </GridList>
